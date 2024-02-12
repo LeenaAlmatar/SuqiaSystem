@@ -16,6 +16,7 @@ class WelcomePage extends StatefulWidget {
   _WelcomePageState createState() => _WelcomePageState();
 }
 
+
 class _WelcomePageState extends State<WelcomePage> {
   Timer? _timer;
 
@@ -41,7 +42,8 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+        body: Center(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
@@ -67,6 +69,6 @@ class _WelcomePageState extends State<WelcomePage> {
           )
         ],
       ),
-    );
+    ));
   }
 }
