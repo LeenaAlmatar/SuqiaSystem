@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:suqia/IdentityPage.dart';
+import 'package:suqia/screens/IdentityPage.dart';
 
 void main() {
   runApp(

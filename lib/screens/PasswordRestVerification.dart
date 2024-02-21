@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:suqia/screens/RestPassword.dart';
 
-class VerificationPage extends StatelessWidget {
+class PasswordVerificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +48,7 @@ class VerificationPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'VERIFY YOUR EMAIL ADDRESS',
+                      'VERIFY YOUR IDENTITY',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class VerificationPage extends StatelessWidget {
                     SizedBox(height: 18),
                     Center(
                       child: Text(
-                        'Please check your email and enter the code below to verify your email.',
+                        'Please check your email and enter the code below to verify your identity to be able to change your password.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -113,8 +114,10 @@ class VerificationPage extends StatelessWidget {
                             height: 48.0,
                             child: ElevatedButton(
                               onPressed: () {
-
-
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ResetPasswordPage()),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(

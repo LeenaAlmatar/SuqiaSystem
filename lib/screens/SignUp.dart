@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/Log-in.dart';
-class sign_up extends StatelessWidget {
+import 'package:suqia/screens/LoginPage.dart';
+
+class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

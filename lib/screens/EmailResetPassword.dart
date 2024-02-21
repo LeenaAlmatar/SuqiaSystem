@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/PasswordRestVerification.dart';
+import 'package:suqia/screens/PasswordRestVerification.dart';
+
 class ResetPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

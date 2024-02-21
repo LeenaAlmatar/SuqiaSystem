@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:suqia/SignInPage.dart';
-import 'package:suqia/MapPage.dart';
+import 'package:suqia/screens/LoginPage.dart';
+import 'package:suqia/screens/MapPage.dart';
 
 class IdentityPage extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class _IdentityPageState extends State<IdentityPage> {
 
   void _employeeSignIn() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SignInPage()));
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 
   void _visitorSignIn() {

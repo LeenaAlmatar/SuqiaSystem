@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/Verification.dart';
-import 'package:first_app/screens/EmailResetPassword.dart';
+import 'package:suqia/screens/IdentityPage.dart';
+import 'package:suqia/screens/Verification.dart';
+import 'package:suqia/screens/EmailResetPassword.dart';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -15,7 +16,10 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
-          onPressed: () {},
+          onPressed: () {Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => IdentityPage()),
+          );},
         ),
         title: Text('Login'),
         centerTitle: true,
@@ -38,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/logo.png',
+                    'Assets/Suqia.jpg',
                     width: 350,
                     height: 100,
                   ),

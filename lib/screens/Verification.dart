@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/RestPassword.dart';
 
-class PasswordVerificationPage extends StatelessWidget {
+class VerificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
@@ -48,7 +47,7 @@ class PasswordVerificationPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'VERIFY YOUR IDENTITY',
+                      'VERIFY YOUR EMAIL ADDRESS',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -58,7 +57,7 @@ class PasswordVerificationPage extends StatelessWidget {
                     SizedBox(height: 18),
                     Center(
                       child: Text(
-                        'Please check your email and enter the code below to verify your identity to be able to change your password.',
+                        'Please check your email and enter the code below to verify your email.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -114,10 +113,8 @@ class PasswordVerificationPage extends StatelessWidget {
                             height: 48.0,
                             child: ElevatedButton(
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => ResetPasswordPage()),
-                                );
+
+
                               },
                               style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
