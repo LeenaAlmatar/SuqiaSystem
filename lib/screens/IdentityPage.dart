@@ -59,7 +59,7 @@ class _IdentityPageState extends State<IdentityPage> {
 
   void _employeeSignIn() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => TankList()));
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 
   void _visitorSignIn() {
