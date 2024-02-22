@@ -1,9 +1,10 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:suqia/screens/LoginPage.dart';
 import 'package:suqia/screens/MapPage.dart';
+import 'package:suqia/screens/TankInfo.dart';
+import 'package:suqia/screens/TankList.dart';
 
 class IdentityPage extends StatefulWidget {
   @override
@@ -11,7 +12,20 @@ class IdentityPage extends StatefulWidget {
 }
 
 class _IdentityPageState extends State<IdentityPage> {
+  // Define a variable to store the selected language
+  String selectedLanguage = 'English'; // Default language
 
+  // Method to switch between languages
+  void switchLanguage() async {
+    setState(() {
+      selectedLanguage = (selectedLanguage == 'English') ? 'Arabic' : 'English';
+    });
+
+    // Reload the app with the new locale
+    final locale = selectedLanguage == 'English' ? Locale('en', 'US') : Locale('ar', 'AE');
+   // await AppLocalizations.of(context).load(locale);
+  //  MyAppState.of(context).setLocale(locale);
+  }
 
   Future<void> requestNotificationPermissions() async {
     final PermissionStatus status = await Permission.notification.request();
@@ -45,20 +59,29 @@ class _IdentityPageState extends State<IdentityPage> {
 
   void _employeeSignIn() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => TankList()));
   }
 
   void _visitorSignIn() {
-    // requestNotificationPermissions();
-    // requestLocationPermissions().then((_) {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => MapPage()));
-    // });
+    requestNotificationPermissions().then((_) {
+      requestLocationPermissions().then((_) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MapPage()));
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.language),
+            onPressed: switchLanguage,
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
