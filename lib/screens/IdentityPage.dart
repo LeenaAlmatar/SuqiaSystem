@@ -3,8 +3,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:suqia/screens/LoginPage.dart';
 import 'package:suqia/screens/MapPage.dart';
-import 'package:suqia/screens/TankInfo.dart';
-import 'package:suqia/screens/TankList.dart';
 
 class IdentityPage extends StatefulWidget {
   @override

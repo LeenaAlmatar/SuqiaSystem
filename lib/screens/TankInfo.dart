@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/LoginPage.dart';
 import 'package:suqia/screens/MapPage.dart';
 
 class TankInfo extends StatelessWidget {
@@ -11,7 +10,8 @@ class TankInfo extends StatelessWidget {
           icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
           onPressed: () {
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => MapPage()));},
+                context, MaterialPageRoute(builder: (context) => MapPage()));
+          },
         ),
         title: Text('Tank Information'),
         centerTitle: true,
@@ -25,42 +25,110 @@ class TankInfo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 10.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset("Assets/tank.png"),
+                ),
+                Text(
+                  'Tank Number: 19',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Color(0xff004AAB),
+                  ),
+                ),
+              ],
+            ),
             Center(
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(33),
                 ),
-                color: Colors.white,
-                margin: EdgeInsets.all(16),
+                color: Colors.white60,
+                margin: EdgeInsets.all(22),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        'Tank Number: 19',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff004AAB),
+                    ListTile(
+                      title: Text('Tank status:',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xff004AAB),
+                          )),
+                      subtitle: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(33),
+                        ),
+                        color: Colors.white,
+                        margin: EdgeInsets.all(20), // Adjust margin
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.circle, color: Colors.red),
+                              SizedBox(width: 8),
+                              Text('Empty', style: TextStyle(fontSize: 15)),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    Divider(color: Colors.grey),
                     ListTile(
-                      leading: Icon(Icons.check_circle, color: Color(0xff004AAB)),
-                      title: Text('Tank status:'),
-                      subtitle: Text('Empty'),
+                      //leading: Icon(Icons.location_pin, color: Color(0xff004AAB)),
+                      title: Text('Floor:',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xff004AAB),
+                          )),
+                      subtitle: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(33),
+                        ),
+                        color: Colors.white,
+                        margin: EdgeInsets.all(20), // Adjust margin
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.location_pin, color: Color(0xff004AAB)),
+                              SizedBox(width: 7),
+                              Text('1st Floor', style: TextStyle(fontSize: 15)),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
+
                     ListTile(
-                      leading: Icon(Icons.location_pin, color: Color(0xff004AAB)),
-                      title: Text('Floor:'),
-                      subtitle: Text('1st Floor'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.thermostat, color: Color(0xff004AAB)),
-                      title: Text('Temperature:'),
-                      subtitle: Text('20°C'),
+                      //leading: Icon(Icons.thermostat, color: Color(0xff004AAB)),
+                      title: Text('Temperature:',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xff004AAB),
+                          )),
+                      subtitle: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(33),
+                        ),
+                        color: Colors.white,
+                        margin: EdgeInsets.all(20), // Adjust margin
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.circle, color: Color(0xff004AAB)),
+                              SizedBox(width: 8),
+                              Text('Cold', style: TextStyle(fontSize: 15)),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -69,13 +137,13 @@ class TankInfo extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: SizedBox(
-                width: double.infinity,
+                width: 340,
                 height: 36.0,
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                     primary: Color(0xff004AAB),
                   ),

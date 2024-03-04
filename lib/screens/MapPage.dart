@@ -11,11 +11,7 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
-            onPressed: () {},
-          ),
-          title: Text('Map Page'),
+          title: Text('Map'),
           centerTitle: true,
           backgroundColor: Color(0xFFF1F2F3),
           titleTextStyle: TextStyle(
@@ -25,7 +21,7 @@ class _MapPageState extends State<MapPage> {
         ),
         body: SingleChildScrollView(
           child:
-             Text("we"),
+             Text("---------"),
         )
     );
   }

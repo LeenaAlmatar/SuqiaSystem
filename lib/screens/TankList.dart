@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class TankList extends StatefulWidget {
   @override
@@ -21,9 +20,7 @@ class _TankListState extends State<TankList> {
           fontSize: 24,
         ),
       ),
-      body: ClipPath(
-       // clipper: CustomClipper(),
-        child: Container(
+      body:Container(
           width: 390,
           height: 844,
           color: Colors.white,
@@ -49,7 +46,7 @@ class _TankListState extends State<TankList> {
                 },
               ),
               ...List.generate(
-                5,
+                9,
                     (index) => Container(
                   width: 330,
                   height: 50,
@@ -75,28 +72,6 @@ class _TankListState extends State<TankList> {
             ],
           ),
         ),
-      ),
     );
   }
 }
-
-// class CustomClipper extends CustomClipper<Path> {
-//   @override
-//   Path getClip(Size size) {
-//     final path = Path();
-//     path.lineTo(0, size.height);
-//     path.lineTo(size.width, size.height);
-//     path.lineTo(size.width, 0);
-//     path.lineTo(0, 0);
-//     path.addRRect(
-//       RRect.fromRectAndRadius(
-//         Rect.fromLTWH(30, 30, size.width - 60, size.height - 60),
-//         Radius.circular(30),
-//       ),
-//     );
-//     return path;
-//   }
-//
-//   @override
-//   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-// }
