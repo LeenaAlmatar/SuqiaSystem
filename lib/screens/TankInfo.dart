@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/MapPage.dart';
+import 'package:suqia/screens/TankList.dart';
 
 class TankInfo extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class TankInfo extends StatelessWidget {
           icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
           onPressed: () {
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => MapPage()));
+                context, MaterialPageRoute(builder: (context) => TankList()));
           },
         ),
         title: Text('Tank Information'),
@@ -34,12 +35,26 @@ class TankInfo extends StatelessWidget {
                   height: 100,
                   child: Image.asset("Assets/tank.png"),
                 ),
-                Text(
-                  'Tank Number: 19',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Color(0xff004AAB),
-                  ),
+                SizedBox(
+                  width: 7,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      'Tank Number: 19',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Color(0xff004AAB),
+                      ),
+                    ),
+                    Text(
+                      'Refill Count Per Day: 12',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xff004AAB),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -95,7 +110,8 @@ class TankInfo extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.location_pin, color: Color(0xff004AAB)),
+                              Icon(Icons.location_pin,
+                                  color: Color(0xff004AAB)),
                               SizedBox(width: 7),
                               Text('1st Floor', style: TextStyle(fontSize: 15)),
                             ],
@@ -103,7 +119,6 @@ class TankInfo extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     ListTile(
                       //leading: Icon(Icons.thermostat, color: Color(0xff004AAB)),
                       title: Text('Temperature:',
@@ -140,7 +155,10 @@ class TankInfo extends StatelessWidget {
                 width: 340,
                 height: 36.0,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => MapPage()));
+                  },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
