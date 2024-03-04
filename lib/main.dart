@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:suqia/screens/TankList.dart';
+import 'package:suqia/screens/TankInfo.dart';
 import 'package:suqia/screens/WelcomePage.dart';
 
 // import 'package:suqia/generated/l10n.dart';

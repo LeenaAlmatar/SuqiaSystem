@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/MapPage.dart';
 import 'package:suqia/screens/TankList.dart';
+// TankInfo.dart
+
 
 class TankInfo extends StatelessWidget {
+  final List<String> tankInfo;
+
+  TankInfo({required this.tankInfo});
+
   @override
   Widget build(BuildContext context) {
+    // Extract information from tankInfo list
+    String tankNumber = tankInfo[0];
+    String status = tankInfo[1];
+    String floor = tankInfo[2];
+    String temperature = tankInfo[3];
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -33,7 +45,7 @@ class TankInfo extends StatelessWidget {
                 Container(
                   width: 100,
                   height: 100,
-                  child: Image.asset("Assets/tank.png"),
+                  child: Image.asset("assets/tank.png"),
                 ),
                 SizedBox(
                   width: 7,
@@ -41,14 +53,14 @@ class TankInfo extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      'Tank Number: 19',
+                      'Tank Number: $tankNumber',
                       style: TextStyle(
                         fontSize: 30,
                         color: Color(0xff004AAB),
                       ),
                     ),
                     Text(
-                      'Refill Count Per Day: 12',
+                      'Refill Count Per Day: 12', // Refill Count Per Day remains unchanged
                       style: TextStyle(
                         fontSize: 16,
                         color: Color(0xff004AAB),
@@ -61,9 +73,9 @@ class TankInfo extends StatelessWidget {
             Center(
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(33),
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                color: Colors.white60,
+                color: Color(0xffe0e0e0),
                 margin: EdgeInsets.all(22),
                 child: Column(
                   children: [
@@ -75,7 +87,7 @@ class TankInfo extends StatelessWidget {
                           )),
                       subtitle: Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(33),
+                          borderRadius: BorderRadius.circular(16),
                         ),
                         color: Colors.white,
                         margin: EdgeInsets.all(20), // Adjust margin
@@ -86,14 +98,13 @@ class TankInfo extends StatelessWidget {
                             children: [
                               Icon(Icons.circle, color: Colors.red),
                               SizedBox(width: 8),
-                              Text('Empty', style: TextStyle(fontSize: 15)),
+                              Text(status, style: TextStyle(fontSize: 18)),
                             ],
                           ),
                         ),
                       ),
                     ),
                     ListTile(
-                      //leading: Icon(Icons.location_pin, color: Color(0xff004AAB)),
                       title: Text('Floor:',
                           style: TextStyle(
                             fontSize: 20,
@@ -101,7 +112,7 @@ class TankInfo extends StatelessWidget {
                           )),
                       subtitle: Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(33),
+                          borderRadius: BorderRadius.circular(18),
                         ),
                         color: Colors.white,
                         margin: EdgeInsets.all(20), // Adjust margin
@@ -113,14 +124,13 @@ class TankInfo extends StatelessWidget {
                               Icon(Icons.location_pin,
                                   color: Color(0xff004AAB)),
                               SizedBox(width: 7),
-                              Text('1st Floor', style: TextStyle(fontSize: 15)),
+                              Text(floor, style: TextStyle(fontSize: 18)),
                             ],
                           ),
                         ),
                       ),
                     ),
                     ListTile(
-                      //leading: Icon(Icons.thermostat, color: Color(0xff004AAB)),
                       title: Text('Temperature:',
                           style: TextStyle(
                             fontSize: 20,
@@ -128,7 +138,7 @@ class TankInfo extends StatelessWidget {
                           )),
                       subtitle: Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(33),
+                          borderRadius: BorderRadius.circular(16),
                         ),
                         color: Colors.white,
                         margin: EdgeInsets.all(20), // Adjust margin
@@ -139,7 +149,7 @@ class TankInfo extends StatelessWidget {
                             children: [
                               Icon(Icons.circle, color: Color(0xff004AAB)),
                               SizedBox(width: 8),
-                              Text('Cold', style: TextStyle(fontSize: 15)),
+                              Text(temperature, style: TextStyle(fontSize: 18)),
                             ],
                           ),
                         ),
@@ -152,8 +162,8 @@ class TankInfo extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: SizedBox(
-                width: 340,
-                height: 36.0,
+                width: 350,
+                height: 50.0,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacement(context,

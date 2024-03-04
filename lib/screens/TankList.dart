@@ -67,7 +67,8 @@ class _TankListState extends State<TankList> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TankInfo(),
+                        builder: (context) => TankInfo(
+                          tankInfo: Tanks[index],),
                       ),
                     );
                   },
@@ -77,7 +78,7 @@ class _TankListState extends State<TankList> {
                     margin: EdgeInsets.symmetric(vertical: 8),
                     decoration: BoxDecoration(
                       color: Color(0xFFF1F2F3),
-                      borderRadius: BorderRadius.circular(33),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
