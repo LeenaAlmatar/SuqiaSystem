@@ -6,7 +6,7 @@ class VerificationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff004AAB)),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
@@ -15,7 +15,7 @@ class VerificationPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
-          color: Color(0xFF0000CC),
+          color: Color(0xff004AAB),
           fontSize: 24,
         ),
       ),
@@ -32,7 +32,7 @@ class VerificationPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/logo.png', // Adjust the image path
+                    'Assets/Suqia.jpg', // Adjust the image path
                     width: 350,
                     height: 100,
                   ),
@@ -120,7 +120,7 @@ class VerificationPage extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                primary: Color(0xFF6666FF),
+                                primary: Color(0xff004AAB),
                               ),
                               child: Text(
                                 'Verify',

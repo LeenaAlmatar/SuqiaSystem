@@ -45,7 +45,7 @@ class TankInfo extends StatelessWidget {
                 Container(
                   width: 100,
                   height: 100,
-                  child: Image.asset("assets/tank.png"),
+                  child: Image.asset("Assets/tank.png"),
                 ),
                 SizedBox(
                   width: 7,

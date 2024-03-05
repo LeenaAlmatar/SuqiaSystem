@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/PasswordRestVerification.dart';
-
 class ResetPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff004AAB)),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
@@ -16,7 +15,7 @@ class ResetPasswordPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
-          color: Color(0xFF0000CC),
+          color: Color(0xff004AAB),
           fontSize: 24,
         ),
       ),
@@ -33,7 +32,7 @@ class ResetPasswordPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/logo.png', // Adjust the image path
+                    'Assets/Suqia.jpg', // Adjust the image path
                     width: 350,
                     height: 100,
                   ),
@@ -75,7 +74,7 @@ class ResetPasswordPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF6666FF),
+                            color: Color(0xff004AAB),
                           ),
                         ),
                         SizedBox(height: 8),
@@ -105,7 +104,7 @@ class ResetPasswordPage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          primary: Color(0xFF6666FF),
+                          primary: Color(0xff004AAB),
                         ),
                         child: Text(
                           'Send',

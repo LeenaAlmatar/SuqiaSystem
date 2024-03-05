@@ -53,8 +53,8 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  #flutter_lints: ^3.0.1
-  #flutter_gen: ^5.4.0
+  flutter_lints: ^3.0.1
+  flutter_gen: ^5.4.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -71,6 +71,8 @@ flutter:
   assets:
     - Assets/Suqia.jpg
     - Assets/back.png
+    - Assets/tank.png
+    - Assets/Tank1.png
 
   # An image asset can refer to one or more
   # An image asset can refer to one or more resolution-specific "variants", see

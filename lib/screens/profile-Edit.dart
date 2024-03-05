@@ -13,7 +13,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff004AAB)),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
@@ -22,7 +22,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
-          color: Color(0xFF0000CC),
+          color: Color(0xff004AAB),
           fontSize: 24,
         ),
       ),
@@ -47,7 +47,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                         'Email',
                         style: TextStyle(
                           fontSize: 20,
-                          color: Color(0xFF6666FF),
+                          color: Color(0xff004AAB),
                         ),
                       ),
                       SizedBox(height: 18),
@@ -61,7 +61,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                         'Phone Number',
                         style: TextStyle(
                           fontSize: 20,
-                          color: Color(0xFF6666FF),
+                          color: Color(0xff004AAB),
                         ),
                       ),
                       SizedBox(height: 18),
@@ -76,7 +76,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                         'Password',
                         style: TextStyle(
                           fontSize: 20,
-                          color: Color(0xFF6666FF),
+                          color: Color(0xff004AAB),
                         ),
                       ),
                       SizedBox(height: 18),

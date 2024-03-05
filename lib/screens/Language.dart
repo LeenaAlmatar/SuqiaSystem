@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ResetPasswordPage extends StatelessWidget {
+class LanguagePage extends StatefulWidget {
+  @override
+  _LanguagePageState createState() => _LanguagePageState();
+}
+
+class _LanguagePageState extends State<LanguagePage> {
+  String selectedLanguage = 'English';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +18,7 @@ class ResetPasswordPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Reset Password'),
+        title: Text('Language'),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -37,33 +44,44 @@ class ResetPasswordPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'New Password',
+                        'Select Language',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 22,
                           color: Color(0xff004AAB),
                         ),
                       ),
                       SizedBox(height: 8),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                      RadioListTile(
+                        title: Text(
+                          'English',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF333333),
+                          ),
                         ),
+                        value: 'English',
+                        groupValue: selectedLanguage,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedLanguage = value.toString();
+                          });
+                        },
                       ),
-                      SizedBox(height: 12),
-                      Text(
-                        'Rewrite New Password',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Color(0xff004AAB),
+                      RadioListTile(
+                        title: Text(
+                          'Arabic',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF333333),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                        ),
+                        value: 'Arabic',
+                        groupValue: selectedLanguage,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedLanguage = value.toString();
+                          });
+                        },
                       ),
                     ],
                   ),
@@ -79,7 +97,8 @@ class ResetPasswordPage extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Reset Password Successfully'),
+                            title: Text('Language Changed Successfully'),
+                            content: Text('Selected Language: $selectedLanguage'),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () {
@@ -99,7 +118,7 @@ class ResetPasswordPage extends StatelessWidget {
                       primary: Color(0xff004AAB),
                     ),
                     child: Text(
-                      'Reset',
+                      'Change Language',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

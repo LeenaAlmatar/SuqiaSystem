@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:suqia/screens/LoginPage.dart';
+import 'package:suqia/screens/Log-in.dart';
 import 'package:suqia/screens/MapPage.dart';
+import 'package:suqia/screens/TankList.dart';
 
 class IdentityPage extends StatefulWidget {
   @override
@@ -57,7 +58,8 @@ class _IdentityPageState extends State<IdentityPage> {
 
   void _employeeSignIn() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+      //context, MaterialPageRoute(builder: (context) => LoginPage()));
+    context, MaterialPageRoute(builder: (context) => TankList()));
   }
 
   void _visitorSignIn() {
@@ -97,7 +99,7 @@ class _IdentityPageState extends State<IdentityPage> {
                 primary: Color(0xff004AAB),
                 padding: EdgeInsets.symmetric(
                   horizontal: 61,
-                  vertical: 15,
+                  vertical: 16,
                 ),
                 textStyle: TextStyle(fontSize: 20),
               ),
@@ -110,7 +112,7 @@ class _IdentityPageState extends State<IdentityPage> {
                 primary: Color(0xff004AAB),
                 padding: EdgeInsets.symmetric(
                   horizontal: 46,
-                  vertical: 15,
+                  vertical: 16,
                 ),
                 textStyle: TextStyle(fontSize: 20),
               ),
