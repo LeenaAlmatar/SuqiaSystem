@@ -3,7 +3,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:suqia/screens/Log-in.dart';
 import 'package:suqia/screens/MapPage.dart';
-import 'package:suqia/screens/TankList.dart';
 
 class IdentityPage extends StatefulWidget {
   @override
@@ -58,17 +57,16 @@ class _IdentityPageState extends State<IdentityPage> {
 
   void _employeeSignIn() {
     Navigator.pushReplacement(
-      //context, MaterialPageRoute(builder: (context) => LoginPage()));
-    context, MaterialPageRoute(builder: (context) => TankList()));
+      context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 
   void _visitorSignIn() {
-    requestNotificationPermissions().then((_) {
-      requestLocationPermissions().then((_) {
+    // requestNotificationPermissions().then((_) {
+    //   requestLocationPermissions().then((_) {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => MapPage()));
-      });
-    });
+      // });
+    // });
   }
 
   @override

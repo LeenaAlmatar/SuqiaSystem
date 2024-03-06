@@ -120,27 +120,31 @@ class _TankListState extends State<TankList> {
       ),
       bottomNavigationBar: Padding(
         padding:
-            EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
+        EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
         child: ClipRRect(
           borderRadius: BorderRadius.vertical(
-              top: Radius.circular(45), bottom: Radius.circular(45)),
+              top: Radius.circular(40), bottom: Radius.circular(40)),
           child: BottomAppBar(
             color: Color(0xff004AAB),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                  icon: Icon(Icons.location_on, color: Colors.white, size: 30),
+                  icon: Icon(Icons.location_on, color: Colors.white, size: 40),
                   onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => MapPage()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()),
+                    );
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.opacity, color: Colors.white, size: 30),
+                  icon: Icon(Icons.opacity, color: Colors.white, size: 40),
                   onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => TankList()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TankList()),
+                    );
                   },
                 ),
                 Material(
@@ -167,19 +171,19 @@ class _TankListState extends State<TankList> {
                           color: Color(
                               0xff0054bb), // Adjust the shadow color and opacity
                           spreadRadius:
-                              50, // Adjust the spread radius to make the shadow wider
+                          50, // Adjust the spread radius to make the shadow wider
                           blurRadius:
-                              2, // Adjust the blur radius for smoother edges
+                          2, // Adjust the blur radius for smoother edges
                         ),
                       ],
                     ),
                     child: IconButton(
-                      icon: Icon(Icons.settings, color: Colors.white, size: 30),
+                      icon: Icon(Icons.settings, color: Colors.white, size: 40),
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SettingsPage()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SettingsPage()),
+                        );
                       },
                     ),
                   ),
