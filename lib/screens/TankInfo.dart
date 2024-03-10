@@ -96,7 +96,7 @@ class TankInfo extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.circle, color: Colors.red),
+                              Icon(Icons.circle, color: status == "Full" ? Color(0xff004AAB) : Colors.grey),
                               SizedBox(width: 8),
                               Text(status, style: TextStyle(fontSize: 18)),
                             ],
@@ -147,7 +147,7 @@ class TankInfo extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.circle, color: Color(0xff004AAB)),
+                              Icon(Icons.circle, color: temperature == "Cold" ? Color(0xff004AAB) : Colors.red),
                               SizedBox(width: 8),
                               Text(temperature, style: TextStyle(fontSize: 18)),
                             ],
