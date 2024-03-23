@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../generated/l10n.dart';
 
 class ContactUsPage extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class ContactUsPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Contact Us'),
+        title: Text(S.of(context).contactUs),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -31,7 +32,7 @@ class ContactUsPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'For enquirers and support',
+                    S.of(context).enquirers, //'For enquirers and support',
                     style: TextStyle(
                       fontSize: 20,
                       color: Color(0xff004AAB),
@@ -52,7 +53,7 @@ class ContactUsPage extends StatelessWidget {
                     children: [
                       SizedBox(height: 2),
                       Text(
-                        'Contact us:',
+                        S.of(context).contactUs, //'Contact us:',
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xff004AAB),

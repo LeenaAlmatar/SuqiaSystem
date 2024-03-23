@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/MapPage.dart';
 import 'package:suqia/screens/TankList.dart';
-// TankInfo.dart
+import '../generated/l10n.dart';
 
 
 class TankInfo extends StatelessWidget {
@@ -26,7 +26,7 @@ class TankInfo extends StatelessWidget {
                 context, MaterialPageRoute(builder: (context) => TankList()));
           },
         ),
-        title: Text('Tank Information'),
+        title: Text(S.of(context).tInfoTitle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -53,14 +53,14 @@ class TankInfo extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      'Tank Number: $tankNumber',
+                      S.of(context).tankNum +': $tankNumber',
                       style: TextStyle(
                         fontSize: 30,
                         color: Color(0xff004AAB),
                       ),
                     ),
                     Text(
-                      'Refill Count Per Day: 12', // Refill Count Per Day remains unchanged
+                      S.of(context).refillCount +': 12', // Refill Count Per Day remains unchanged
                       style: TextStyle(
                         fontSize: 16,
                         color: Color(0xff004AAB),
@@ -80,7 +80,7 @@ class TankInfo extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text('Tank status:',
+                      title: Text(S.of(context).tStatus + ':',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xff004AAB),
@@ -105,7 +105,7 @@ class TankInfo extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      title: Text('Floor:',
+                      title: Text(S.of(context).floor +':',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xff004AAB),
@@ -131,7 +131,7 @@ class TankInfo extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      title: Text('Temperature:',
+                      title: Text(S.of(context).temperature+':',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xff004AAB),
@@ -175,7 +175,8 @@ class TankInfo extends StatelessWidget {
                     ), backgroundColor: Color(0xff004AAB),
                   ),
                   child: Text(
-                    'Locate',
+                    S.of(context).locate,
+                    //'Locate',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,

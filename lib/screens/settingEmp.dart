@@ -6,6 +6,7 @@ import 'package:suqia/screens/Language.dart';
 import 'package:suqia/screens/Privacy.dart';
 import 'package:suqia/screens/ContactUs.dart';
 import 'package:suqia/screens/AboutSuqia.dart';
+import '../generated/l10n.dart';
 
 class SettingsPage extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class SettingsPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Settings'),
+        title: Text(S.of(context).setTitle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -37,7 +38,7 @@ class SettingsPage extends StatelessWidget {
                 SizedBox(height: 20),
                 _buildOptionCard(
                   context,
-                  'Profile',
+                  S.of(context).profile,//'Profile',
                   () {Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -54,7 +55,7 @@ class SettingsPage extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'Language',
+                  S.of(context).language,//'Language',
                   () {
                     Navigator.push(
                       context,
@@ -71,7 +72,7 @@ class SettingsPage extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'Privacy',
+                  S.of(context).privacy,//'Privacy',
                   () {
                     Navigator.push(
                       context,
@@ -88,7 +89,7 @@ class SettingsPage extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'Contact us',
+                  S.of(context).contactUs,//'Contact us',
                   () {
                     Navigator.push(
                       context,
@@ -105,7 +106,7 @@ class SettingsPage extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'About us',
+                  S.of(context).aboutUs,//'About us',
                   () {
                     Navigator.push(
                       context,
@@ -122,20 +123,21 @@ class SettingsPage extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'Logout',
+                  S.of(context).logOut,//'Logout',
                   () {},
                   () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text('Logout Successfully'),
+                          title: Text(S.of(context).logOutMes////'Logout Successfully'
+                          ),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Text('OK'),
+                              child: Text(S.of(context).ok),
                             ),
                           ],
                         );

@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutSuqia": MessageLookupByLibrary.simpleMessage(
             "We will help you arrive to Zamzm water tanks by using your direction settings to guide you for the nearest Zamzm water tank based on your specifications with the highest quality and the easiest way."),
         "aboutUs": MessageLookupByLibrary.simpleMessage("About us"),
+        "checkEmail": MessageLookupByLibrary.simpleMessage(
+            "Please check your email and enter the code below to verify your identity to be able to change your password."),
         "codeTime": MessageLookupByLibrary.simpleMessage(
             "The code will expire in 2 minutes."),
         "cold": MessageLookupByLibrary.simpleMessage("Cold"),
@@ -56,7 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "floor": MessageLookupByLibrary.simpleMessage("Floor"),
         "full": MessageLookupByLibrary.simpleMessage("Full"),
         "haveAcc":
-            MessageLookupByLibrary.simpleMessage("Already have an account? "),
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "infoCollect":
             MessageLookupByLibrary.simpleMessage("Information Collection:"),
         "infoCollection": MessageLookupByLibrary.simpleMessage(
@@ -70,13 +72,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "infoUsage": MessageLookupByLibrary.simpleMessage(
             "We use the information we collect to improve our app\\\'s functionality and provide you with a personalized experience."),
         "infoUse": MessageLookupByLibrary.simpleMessage("Use of Information:"),
-        "intro": MessageLookupByLibrary.simpleMessage("Introduction"),
+        "intro": MessageLookupByLibrary.simpleMessage("Introduction:"),
         "introPri": MessageLookupByLibrary.simpleMessage(
             "This privacy policy applies to our mobile application. It explains how we collect, use, and protect your personal information when you use Suqia."),
         "lanAr": MessageLookupByLibrary.simpleMessage("Arabic"),
         "lanChange": MessageLookupByLibrary.simpleMessage("Change Language"),
         "lanEn": MessageLookupByLibrary.simpleMessage("English"),
-        "lanSelect": MessageLookupByLibrary.simpleMessage("Select Language"),
+        "lanSelect": MessageLookupByLibrary.simpleMessage("Select Language: "),
         "langMessg": MessageLookupByLibrary.simpleMessage(
             "Language Changed Successfully"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -100,12 +102,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "noAccount":
             MessageLookupByLibrary.simpleMessage("Don\\\'t have an account? "),
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
+        "passChar": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one special character"),
         "passConf": MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "passConfHint":
             MessageLookupByLibrary.simpleMessage("Confirm your password"),
+        "passDig": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one digit"),
         "passEmpty":
             MessageLookupByLibrary.simpleMessage("Please enter a password"),
         "passForget": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "passLow": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one lowercase letter"),
         "passMessage":
             MessageLookupByLibrary.simpleMessage("Enter your password"),
         "passNotMatch":
@@ -113,6 +121,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passRest": MessageLookupByLibrary.simpleMessage("Resetting Password"),
         "passShort": MessageLookupByLibrary.simpleMessage(
             "Password must be longer than 6 characters"),
+        "passUpp": MessageLookupByLibrary.simpleMessage(
+            "Password must contain at least one uppercase letter"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "priTittle":
@@ -143,6 +153,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tank": MessageLookupByLibrary.simpleMessage("Tank"),
         "tankNum": MessageLookupByLibrary.simpleMessage("Tank Number"),
         "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
+        "verifIdn":
+            MessageLookupByLibrary.simpleMessage("VERIFY YOUR IDENTITY"),
         "verifPageTitle": MessageLookupByLibrary.simpleMessage("Verification"),
         "verifyButton": MessageLookupByLibrary.simpleMessage("Verify"),
         "verifyEmail":

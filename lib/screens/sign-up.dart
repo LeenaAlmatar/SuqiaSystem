@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/Log-in.dart';
 import 'package:suqia/classes/Employee.dart';
+import '../generated/l10n.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -13,9 +14,11 @@ class _SignUpState extends State<SignUp> {
   String lastName = ''; // Define variable to store last name input
   String email = ''; // Define variable to store email input
   String password = ''; // Define variable to store password input
-  String confirmPassword = ''; // Define variable to store confirm password input
+  String confirmPassword =
+      ''; // Define variable to store confirm password input
   bool _obscurePassword = true; // Variable to toggle password visibility
-  bool _obscureConfirmPassword = true; // Variable to toggle confirm password visibility
+  bool _obscureConfirmPassword =
+      true; // Variable to toggle confirm password visibility
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class _SignUpState extends State<SignUp> {
           icon: Icon(Icons.arrow_back, color: Color(0xff004AAB)),
           onPressed: () {},
         ),
-        title: Text('Sign Up'),
+        title: Text(S.of(context).signUpTitle),
         centerTitle: true,
         backgroundColor: Color(0xff004AAB),
         titleTextStyle: TextStyle(
@@ -61,7 +64,8 @@ class _SignUpState extends State<SignUp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'First Name',
+                      S.of(context).firstName,
+                      //'First Name',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -71,26 +75,32 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(height: 8),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Enter your first name',
+                        hintText: S
+                            .of(context)
+                            .firstNameMessage, //'Enter your first name',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
-                        contentPadding:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
                       ),
                       validator: (value) {
                         if (value?.isEmpty ?? true) {
-                          return 'Please enter your first name';
+                          return S
+                              .of(context)
+                              .firstNameEmpty; //'Please enter your first name';
                         }
-                      }, onChanged: (value) {
-                      setState(() {
-                        firstName = value;
-                      });
-                    },
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          firstName = value;
+                        });
+                      },
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Last Name',
+                      S.of(context).lastName,
+                      //'Last Name',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -100,16 +110,20 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(height: 8),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Enter your last name',
+                        hintText: S
+                            .of(context)
+                            .lastNameMessage, //'Enter your last name',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
-                        contentPadding:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
                       ),
                       validator: (value) {
                         if (value?.isEmpty ?? true) {
-                          return 'Please enter your last name';
+                          return S
+                              .of(context)
+                              .lastNameEmpty; //'Please enter your last name';
                         }
                       },
                       onChanged: (value) {
@@ -120,7 +134,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Email',
+                      S.of(context).email,
+                      //'Email',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -130,19 +145,24 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(height: 8),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Enter your email',
+                        hintText:
+                            S.of(context).emailMessage, //'Enter your email',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
-                        contentPadding:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
                       ),
                       validator: (value) {
                         if (value?.isEmpty ?? true) {
-                          return 'Please enter an email';
+                          return S
+                              .of(context)
+                              .emailEmpty; //'Please enter an email';
                         }
                         if (!(value?.endsWith('@suqia.com') ?? false)) {
-                          return 'Email must end with @suqia.com';
+                          return S
+                              .of(context)
+                              .emailErrorMes; //'Email must end with @suqia.com';
                         }
                         return null;
                       },
@@ -154,7 +174,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Password',
+                      S.of(context).password,
+                      //'Password',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -164,12 +185,13 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(height: 8),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Enter your password',
+                        hintText:
+                            S.of(context).passMessage, //'Enter your password',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
-                        contentPadding:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
@@ -186,9 +208,13 @@ class _SignUpState extends State<SignUp> {
                       obscureText: _obscurePassword,
                       validator: (value) {
                         if (value?.isEmpty ?? true) {
-                          return 'Please enter a password';
+                          return S
+                              .of(context)
+                              .passEmpty; //'Please enter a password';
                         } else if (value!.length < 6) {
-                          return 'Password must be longer than 6 characters';
+                          return S
+                              .of(context)
+                              .passShort; //'Password must be longer than 6 characters';
                         }
                         return null;
                       },
@@ -200,7 +226,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Confirm Password',
+                      S.of(context).passConf,
+                      //'Confirm Password',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -210,12 +237,14 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(height: 8),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Confirm your password',
+                        hintText: S
+                            .of(context)
+                            .passConfHint, //'Confirm your password',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
-                        contentPadding:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscureConfirmPassword
@@ -225,7 +254,7 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () {
                             setState(() {
                               _obscureConfirmPassword =
-                              !_obscureConfirmPassword;
+                                  !_obscureConfirmPassword;
                             });
                           },
                         ),
@@ -233,9 +262,13 @@ class _SignUpState extends State<SignUp> {
                       obscureText: _obscureConfirmPassword,
                       validator: (value) {
                         if (value?.isEmpty ?? true) {
-                          return 'Please enter a password';
+                          return S
+                              .of(context)
+                              .passEmpty; //'Please enter a password';
                         } else if (value != password) {
-                          return 'Passwords do not match';
+                          return S
+                              .of(context)
+                              .passNotMatch; //'Passwords do not match';
                         }
                         return null;
                       },
@@ -261,9 +294,10 @@ class _SignUpState extends State<SignUp> {
                                 password.contains(RegExp(r'[A-Z]')) &&
                                 password.contains(RegExp(r'[a-z]')) &&
                                 password.contains(RegExp(r'[0-9]')) &&
-                                password.contains(RegExp(
-                                    r'[!@#%^&*(),.?":{}|<>]'))
-                                &&_employee.signUp(firstName, lastName, email, password)) {
+                                password.contains(
+                                    RegExp(r'[!@#%^&*(),.?":{}|<>]')) &&
+                                _employee.signUp(
+                                    firstName, lastName, email, password)) {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -273,38 +307,53 @@ class _SignUpState extends State<SignUp> {
                             } else {
                               String errorMessage = '';
                               if (!email.endsWith('@suqia.com')) {
-                                errorMessage = 'Email must end with @suqia.com';
+                                errorMessage = S
+                                    .of(context)
+                                    .emailErrorMes; //'Email must end with @suqia.com';
                               } else if (confirmPassword != password) {
-                                errorMessage = 'Passwords do not match';
+                                errorMessage = S
+                                    .of(context)
+                                    .passNotMatch; //'Passwords do not match';
                               }
                               if (password?.isEmpty ?? true) {
-                                errorMessage = 'Please enter a password';
+                                errorMessage = S
+                                    .of(context)
+                                    .passEmpty; //'Please enter a password';
                               }
                               if (firstName?.isEmpty ?? true) {
-                                errorMessage = 'Please enter your first name';
+                                errorMessage = S
+                                    .of(context)
+                                    .firstNameEmpty; //'Please enter your first name';
                               }
                               if (lastName?.isEmpty ?? true) {
-                                errorMessage = 'Please enter your last name';
+                                errorMessage = S
+                                    .of(context)
+                                    .lastNameEmpty; //'Please enter your last name';
                               } else if (password!.length < 6) {
-                                errorMessage =
-                                'Password must be longer than 6 characters';
+                                errorMessage = S
+                                    .of(context)
+                                    .passShort; //'Password must be longer than 6 characters';
                               }
                               if (!password.contains(RegExp(r'[A-Z]'))) {
-                                errorMessage =
-                                'Password must contain at least one uppercase letter';
+                                errorMessage = S
+                                    .of(context)
+                                    .passUpp; //'Password must contain at least one uppercase letter';
                               }
                               if (!password.contains(RegExp(r'[a-z]'))) {
-                                errorMessage =
-                                'Password must contain at least one lowercase letter';
+                                errorMessage = S
+                                    .of(context)
+                                    .passLow; //'Password must contain at least one lowercase letter';
                               }
                               if (!password.contains(RegExp(r'[0-9]'))) {
-                                errorMessage =
-                                'Password must contain at least one digit';
+                                errorMessage = S
+                                    .of(context)
+                                    .passDig; //'Password must contain at least one digit';
                               }
-                              if (!password.contains(RegExp(
-                                  r'[!@#%^&*(),.?":{}|<>]'))) {
-                                errorMessage =
-                                'Password must contain at least one special character';
+                              if (!password
+                                  .contains(RegExp(r'[!@#%^&*(),.?":{}|<>]'))) {
+                                errorMessage = S
+                                    .of(context)
+                                    .passChar; //'Password must contain at least one special character';
                               }
 
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -319,10 +368,12 @@ class _SignUpState extends State<SignUp> {
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
-                            ), backgroundColor: Color(0xff004AAB),
+                            ),
+                            backgroundColor: Color(0xff004AAB),
                           ),
                           child: Text(
-                            'Sign Up',
+                            S.of(context).signUpButton,
+                            //'Sign Up',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -336,7 +387,8 @@ class _SignUpState extends State<SignUp> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Already have an account? ',
+                          S.of(context).haveAcc,
+                          //'Already have an account? ',
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.black87,
@@ -352,7 +404,8 @@ class _SignUpState extends State<SignUp> {
                             );
                           },
                           child: Text(
-                            'Login',
+                            S.of(context).loginPage,
+                            //'Login',
                             style: TextStyle(
                               fontSize: 14,
                               color: Color(0xff004AAB),

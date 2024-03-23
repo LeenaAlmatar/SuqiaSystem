@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/PasswordRestVerification.dart';
+import '../generated/l10n.dart';
+
 class ResetPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class ResetPasswordPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Verification'),
+        title: Text(S.of(context).verifPageTitle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -47,7 +49,7 @@ class ResetPasswordPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Resetting Password',
+                      S.of(context).passRest, //,'Resetting Password',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -57,7 +59,7 @@ class ResetPasswordPage extends StatelessWidget {
                     SizedBox(height: 18),
                     Center(
                       child: Text(
-                        'Please enter your email to send you a code to start the process of resetting your password.',
+                        S.of(context).sendEmail, //'Please enter your email to send you a code to start the process of resetting your password.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -70,7 +72,7 @@ class ResetPasswordPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start, // Align to the left
                       children: [
                         Text(
-                          'Email',
+                          S.of(context).email,//'Email',
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -80,7 +82,7 @@ class ResetPasswordPage extends StatelessWidget {
                         SizedBox(height: 8),
                         TextFormField(
                           decoration: InputDecoration(
-                            hintText: 'Enter your email',
+                            hintText: S.of(context).emailMessage,//'Enter your email',
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                             ),
@@ -106,7 +108,7 @@ class ResetPasswordPage extends StatelessWidget {
                           ), backgroundColor: Color(0xff004AAB),
                         ),
                         child: Text(
-                          'Send',
+                          S.of(context).send, //'Send',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,

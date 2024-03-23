@@ -41,6 +41,10 @@
   "passMessage": "Enter your password",
   "passEmpty": "Please enter a password",
   "passShort": "Password must be longer than 6 characters",
+  "passUpp": "Password must contain at least one uppercase letter",
+  "passLow": "Password must contain at least one lowercase letter",
+  "passDig": "Password must contain at least one digit",
+  "passChar": "Password must contain at least one special character",
   "passConf": "Confirm Password",
   "passConfHint": "Confirm your password",
   "passNotMatch": "Passwords do not match",
@@ -69,7 +73,7 @@
   "save": "Save",
 
   "priTittle": "Suqia Privacy Policy",
-  "intro": "Introduction",
+  "intro": "Introduction:",
   "introPri": "This privacy policy applies to our mobile application. It explains how we collect, use, and protect your personal information when you use Suqia.",
   "infoCollect": "Information Collection:",
   "infoCollection": "When you use our app, we may collect certain information, such as your device\\'s unique identifier, location data, and app usage statistics.",
@@ -94,6 +98,8 @@
   "langMessg": "Language Changed Successfully",
   "lanChange": "Change Language",
 
+  "verifIdn": "VERIFY YOUR IDENTITY",
+  "checkEmail": "Please check your email and enter the code below to verify your identity to be able to change your password.",
   "passRest": "Resetting Password",
   "sendEmail": "Please enter your email to send you a code to start the process of resetting your password.",
   "send": "Send",

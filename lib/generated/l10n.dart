@@ -430,6 +430,46 @@ class S {
     );
   }
 
+  /// `Password must contain at least one uppercase letter`
+  String get passUpp {
+    return Intl.message(
+      'Password must contain at least one uppercase letter',
+      name: 'passUpp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one lowercase letter`
+  String get passLow {
+    return Intl.message(
+      'Password must contain at least one lowercase letter',
+      name: 'passLow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one digit`
+  String get passDig {
+    return Intl.message(
+      'Password must contain at least one digit',
+      name: 'passDig',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one special character`
+  String get passChar {
+    return Intl.message(
+      'Password must contain at least one special character',
+      name: 'passChar',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Confirm Password`
   String get passConf {
     return Intl.message(
@@ -470,10 +510,10 @@ class S {
     );
   }
 
-  /// `Already have an account? `
+  /// `Already have an account?`
   String get haveAcc {
     return Intl.message(
-      'Already have an account? ',
+      'Already have an account?',
       name: 'haveAcc',
       desc: '',
       args: [],
@@ -670,10 +710,10 @@ class S {
     );
   }
 
-  /// `Introduction`
+  /// `Introduction:`
   String get intro {
     return Intl.message(
-      'Introduction',
+      'Introduction:',
       name: 'intro',
       desc: '',
       args: [],
@@ -840,10 +880,10 @@ class S {
     );
   }
 
-  /// `Select Language`
+  /// `Select Language: `
   String get lanSelect {
     return Intl.message(
-      'Select Language',
+      'Select Language: ',
       name: 'lanSelect',
       desc: '',
       args: [],
@@ -885,6 +925,26 @@ class S {
     return Intl.message(
       'Change Language',
       name: 'lanChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `VERIFY YOUR IDENTITY`
+  String get verifIdn {
+    return Intl.message(
+      'VERIFY YOUR IDENTITY',
+      name: 'verifIdn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your email and enter the code below to verify your identity to be able to change your password.`
+  String get checkEmail {
+    return Intl.message(
+      'Please check your email and enter the code below to verify your identity to be able to change your password.',
+      name: 'checkEmail',
       desc: '',
       args: [],
     );
@@ -957,6 +1017,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
     ];
   }
 

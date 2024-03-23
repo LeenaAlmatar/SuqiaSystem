@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:suqia/screens/TankList.dart';
 import 'package:suqia/screens/SettingVistor.dart';
 import 'package:suqia/screens/settingEmp.dart';
+import '../generated/l10n.dart';
 
 class MapPage extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Map'),
+        title: Text(S.of(context).mapTittle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(

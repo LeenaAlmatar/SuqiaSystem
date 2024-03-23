@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../generated/l10n.dart';
 
 class ResetPasswordPage extends StatelessWidget {
   @override
@@ -11,7 +12,8 @@ class ResetPasswordPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Reset Password'),
+        title: Text(S.of(context).resetPassTittle//'Reset Password'
+        ),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -37,7 +39,7 @@ class ResetPasswordPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'New Password',
+                        S.of(context).newPass,//'New Password',
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xff004AAB),
@@ -52,7 +54,7 @@ class ResetPasswordPage extends StatelessWidget {
                       ),
                       SizedBox(height: 12),
                       Text(
-                        'Rewrite New Password',
+                        S.of(context).reNewPass,//'Rewrite New Password',
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xff004AAB),
@@ -79,13 +81,14 @@ class ResetPasswordPage extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Reset Password Successfully'),
+                            title: Text(S.of(context).resetPassSuc//'Reset Password Successfully'
+                            ),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('OK'),
+                                child: Text(S.of(context).ok),
                               ),
                             ],
                           );
@@ -98,7 +101,7 @@ class ResetPasswordPage extends StatelessWidget {
                       ), backgroundColor: Color(0xff004AAB),
                     ),
                     child: Text(
-                      'Reset',
+                      S.of(context).reset,//'Reset',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

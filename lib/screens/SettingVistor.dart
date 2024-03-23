@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/MapPage.dart';
 import 'package:suqia/screens/TankList.dart';
-import 'package:suqia/screens/profile-Edit.dart';
 import 'package:suqia/screens/Language.dart';
 import 'package:suqia/screens/Privacy.dart';
 import 'package:suqia/screens/ContactUs.dart';
 import 'package:suqia/screens/AboutSuqia.dart';
+import '../generated/l10n.dart';
 
 class SettingsPageVistor extends StatelessWidget {
   @override
@@ -18,7 +18,7 @@ class SettingsPageVistor extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Settings'),
+        title: Text(S.of(context).setTitle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -37,7 +37,7 @@ class SettingsPageVistor extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'Language',
+                  S.of(context).language,//'Language',
                   () {
                     Navigator.pushReplacement(
                         context,
@@ -54,7 +54,7 @@ class SettingsPageVistor extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'Privacy',
+                  S.of(context).privacy,//'Privacy',
                   () {
                     Navigator.push(
                       context,
@@ -71,7 +71,7 @@ class SettingsPageVistor extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'Contact us',
+                  S.of(context).contactUs,//'Contact us',
                   () {
                     Navigator.push(
                       context,
@@ -88,7 +88,7 @@ class SettingsPageVistor extends StatelessWidget {
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
-                  'About us',
+                  S.of(context).aboutUs,//'About us',
                   () {
                     Navigator.push(
                       context,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../generated/l10n.dart';
 
 class AboutSuqiaPage extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class AboutSuqiaPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('About Suqia'),
+        title: Text(S.of(context).aboutUs),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -34,7 +35,7 @@ class AboutSuqiaPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'At Suqia we are passionate about improving your experience in the holy mosques.',
+                      S.of(context).about, //'At Suqia we are passionate about improving your experience in the holy mosques.',
                       style: TextStyle(
                         fontSize: 20,
                         color: Color(0xff004AAB),
@@ -43,7 +44,7 @@ class AboutSuqiaPage extends StatelessWidget {
                     ),
                     SizedBox(height: 2),
                     Text(
-                      'We will help you arrive to Zamzm water tanks by using your direction settings to guide you for the nearest Zamzm water tank based on your specifications with the highest quality and the easiest way.',
+                      S.of(context).aboutSuqia, //'We will help you arrive to Zamzm water tanks by using your direction settings to guide you for the nearest Zamzm water tank based on your specifications with the highest quality and the easiest way.',
                       style: TextStyle(
                         fontSize: 20,
                         color: Color(0xff004AAB),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/RestPassword.dart';
+import '../generated/l10n.dart';
 
 class PasswordVerificationPage extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class PasswordVerificationPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('verification'),
+        title: Text(S.of(context).verifPageTitle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -33,7 +34,7 @@ class PasswordVerificationPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/logo.png', // Adjust the image path
+                    'Assets/logo.png',
                     width: 350,
                     height: 100,
                   ),
@@ -48,7 +49,7 @@ class PasswordVerificationPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'VERIFY YOUR IDENTITY',
+                      S.of(context).verifIdn,//'VERIFY YOUR IDENTITY',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -58,7 +59,7 @@ class PasswordVerificationPage extends StatelessWidget {
                     SizedBox(height: 18),
                     Center(
                       child: Text(
-                        'Please check your email and enter the code below to verify your identity to be able to change your password.',
+                        S.of(context).checkEmail,//'Please check your email and enter the code below to verify your identity to be able to change your password.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -69,7 +70,7 @@ class PasswordVerificationPage extends StatelessWidget {
                     SizedBox(height: 12),
                     Center(
                       child: Text(
-                        'The code will expire in 2 minutes.',
+                        S.of(context).codeTime,//'The code will expire in 2 minutes.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -125,7 +126,7 @@ class PasswordVerificationPage extends StatelessWidget {
                                 ), backgroundColor: Color(0xff004AAB),
                               ),
                               child: Text(
-                                'Verify',
+                                S.of(context).verifyButton,//'Verify',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
@@ -142,7 +143,7 @@ class PasswordVerificationPage extends StatelessWidget {
                                   // Resend code functionality
                                 },
                                 child: Text(
-                                  'Resend Code',
+                                  S.of(context).resendCode,//'Resend Code',
                                   style: TextStyle(
                                     color: Color(0xFF33363F),
                                     fontSize: 16,

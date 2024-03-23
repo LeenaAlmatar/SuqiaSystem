@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:suqia/screens/TankInfo.dart';
 import 'package:suqia/screens/settingEmp.dart';
 import 'package:suqia/screens/MapPage.dart';
+import '../generated/l10n.dart';
 
 class TankList extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _TankListState extends State<TankList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tank List'),
+        title: Text(S.of(context).tListTitle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -48,11 +49,11 @@ class _TankListState extends State<TankList> {
                 value: selectedFilter,
                 items: [
                   DropdownMenuItem(
-                    child: Text('Distance'),
+                    child: Text(S.of(context).distance),
                     value: 'Distance',
                   ),
                   DropdownMenuItem(
-                    child: Text('Temperature'),
+                    child: Text(S.of(context).temperature),
                     value: 'Temperature',
                   ),
                 ],
@@ -95,7 +96,7 @@ class _TankListState extends State<TankList> {
                         ),
                         SizedBox(width: 50),
                         Text(
-                          'Tank ${Tanks[index][0]}',
+                          S.of(context).tank + '${Tanks[index][0]}',
                           style: TextStyle(
                             color: Color(0xff004AAB),
                             fontSize: 18,

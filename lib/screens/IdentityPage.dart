@@ -64,12 +64,12 @@ class _IdentityPageState extends State<IdentityPage> {
   }
 
   void _visitorSignIn() {
-    requestNotificationPermissions().then((_) {
-      requestLocationPermissions().then((_) {
+    //requestNotificationPermissions().then((_) {
+     // requestLocationPermissions().then((_) {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => MapPage()));
-      });
-    });
+    //  });
+    //});
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../generated/l10n.dart';
 
 class LanguagePage extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _LanguagePageState extends State<LanguagePage> {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Language'),
+        title: Text(S.of(context).language),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -44,7 +45,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Select Language',
+                        S.of(context).lanSelect,//'Select Language',
                         style: TextStyle(
                           fontSize: 22,
                           color: Color(0xff004AAB),
@@ -53,7 +54,7 @@ class _LanguagePageState extends State<LanguagePage> {
                       SizedBox(height: 8),
                       RadioListTile(
                         title: Text(
-                          'English',
+                          S.of(context).lanEn,//'English',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xFF333333),
@@ -69,7 +70,7 @@ class _LanguagePageState extends State<LanguagePage> {
                       ),
                       RadioListTile(
                         title: Text(
-                          'Arabic',
+                          S.of(context).lanAr,// 'Arabic',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xFF333333),
@@ -97,14 +98,15 @@ class _LanguagePageState extends State<LanguagePage> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Language Changed Successfully'),
-                            content: Text('Selected Language: $selectedLanguage'),
+                            title: Text(S.of(context).langMessg //'Language Changed Successfully'
+                            ),
+                            content: Text(S.of(context).lanSelect + '$selectedLanguage'),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('OK'),
+                                child: Text(S.of(context).ok),
                               ),
                             ],
                           );
@@ -117,7 +119,7 @@ class _LanguagePageState extends State<LanguagePage> {
                       ), backgroundColor: Color(0xff004AAB),
                     ),
                     child: Text(
-                      'Change Language',
+                      S.of(context).lanChange, //'Change Language',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

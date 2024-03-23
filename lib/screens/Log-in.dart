@@ -3,6 +3,8 @@ import 'package:suqia/screens/Verification.dart';
 import 'package:suqia/screens/EmailResetPassword.dart';
 import 'package:suqia/classes/Employee.dart';
 import 'package:suqia/screens/sign-up.dart';
+import '../generated/l10n.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -23,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
           icon: Icon(Icons.arrow_back, color: Color(0xff004AAB)),
           onPressed: () {},
         ),
-        title: Text('Login'),
+        title: Text(S.of(context).loginPage),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -59,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Email',
+                      S.of(context).email,//'Email',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -68,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height: 8),TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Enter your email',
+                        hintText: S.of(context).emailMessage,//'Enter your email',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
@@ -83,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
 
                     SizedBox(height: 8),
                     Text(
-                      'Password',
+                      S.of(context).password,//'Password',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -93,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 8),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Enter your password',
+                        hintText: S.of(context).passMessage,//'Enter your password',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
@@ -127,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       child: Text(
-                        'Forgot Password?',
+                        S.of(context).passForget,//'Forgot Password?',
                         style: TextStyle(
                           fontSize: 14,
                           color: Color(0xff004AAB),
@@ -149,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                               },
                             ),
                             Text(
-                              'Remember Me',
+                              S.of(context).rememberMe,//'Remember Me',
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.black87,
@@ -173,12 +175,12 @@ class _LoginPageState extends State<LoginPage> {
                                 MaterialPageRoute(builder: (context) => VerificationPage()),
                               );} else {
                               String errorMessage = '';
-                              errorMessage = 'Invalid email or password';
+                              errorMessage = S.of(context).loginError; //'Invalid email or password';
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(errorMessage),
                                   backgroundColor: Colors.red,
-                                  duration: Duration(seconds: 3), // Adjust as needed
+                                  duration: Duration(seconds: 4), // Adjust as needed
                                 ),
                               );
 
@@ -190,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                             ), backgroundColor: Color(0xff004AAB),
                           ),
                           child: Text(
-                            'Login',
+                            S.of(context).loginPage,//'Login',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -204,7 +206,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Don\'t have an account? ',
+                          S.of(context).noAccount,//'Don\'t have an account? ',
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.black87,
@@ -218,7 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                             //Navigator.pop(context); // Go back to the previous screen
                           },
                           child: Text(
-                            'Sign Up',
+                            S.of(context).signUpButton,//'Sign Up',
                             style: TextStyle(
                               fontSize: 14,
                               color: Color(0xff004AAB),

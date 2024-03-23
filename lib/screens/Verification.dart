@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../generated/l10n.dart';
 
 class VerificationPage extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class VerificationPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('verification'),
+        title: Text(S.of(context).verifPageTitle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -47,7 +48,7 @@ class VerificationPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'VERIFY YOUR EMAIL ADDRESS',
+                    S.of(context).verifyEmail,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -57,7 +58,8 @@ class VerificationPage extends StatelessWidget {
                     SizedBox(height: 18),
                     Center(
                       child: Text(
-                        'Please check your email and enter the code below to verify your email.',
+                        S.of(context).emailCode,
+                        //'Please check your email and enter the code below to verify your email.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -68,7 +70,8 @@ class VerificationPage extends StatelessWidget {
                     SizedBox(height: 12),
                     Center(
                       child: Text(
-                        'The code will expire in 2 minutes.',
+                        S.of(context).codeTime,
+                        //'The code will expire in 2 minutes.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -122,7 +125,8 @@ class VerificationPage extends StatelessWidget {
                                 ), backgroundColor: Color(0xff004AAB),
                               ),
                               child: Text(
-                                'Verify',
+                                S.of(context).verifyButton,
+                                //'Verify',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
@@ -139,7 +143,8 @@ class VerificationPage extends StatelessWidget {
                                   // Resend code functionality
                                 },
                                 child: Text(
-                                  'Resend Code',
+                                    S.of(context).resendCode,
+                                  //'Resend Code',
                                   style: TextStyle(
                                     color: Color(0xFF33363F),
                                     fontSize: 16,

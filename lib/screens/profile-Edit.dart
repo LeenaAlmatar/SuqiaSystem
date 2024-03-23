@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../generated/l10n.dart';
 
 class ProfileEditPage extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text('Profile'),
+        title: Text(S.of(context).profile),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -44,7 +45,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Email',
+                        S.of(context).email,//'Email',
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xff004AAB),
@@ -58,7 +59,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        'Phone Number',
+                        S.of(context).phoneNum,//'Phone Number',
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xff004AAB),
@@ -73,7 +74,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        'Password',
+                        S.of(context).password,//'Password',
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xff004AAB),
@@ -113,13 +114,14 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Text('Information Updated Successfully'),
+                              title: Text(S.of(context).infoUpdate//'Information Updated Successfully'
+                              ),
                               actions: <Widget>[
                                 TextButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: Text('Ok'),
+                                  child: Text(S.of(context).ok),
                                 ),
                               ],
                             );
@@ -132,7 +134,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                         ), backgroundColor: Color(0xFF9199A1),
                       ),
                       child: Text(
-                        'Save',
+                        S.of(context).save,//'Save',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
