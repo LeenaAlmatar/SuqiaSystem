@@ -24,7 +24,10 @@
   "empty": "فارغة",
   "floor": "الدور",
   "cold": "باردة",
-  "locate": "حدد أو ارشدني",
+  "warm": "دافئ",
+  "nearest": "الأقرب",
+  "farthest": "الأبعد",
+  "locate": "ارشدني",
 
   "signUpTitle": "Sign Up",
   "firstName": "الأسم الأول",

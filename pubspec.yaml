@@ -34,9 +34,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_gen: ^5.4.0
-  geolocator: ^8.2.0
+  flutter_map: ^3.1.0
+  latlong2: ^0.8.1
+  geolocator: ^7.0.3
   permission_handler: ^8.2.0
   cupertino_icons: ^1.0.2
+  flutter_polyline_points: ^1.0.0
+  dio: ^4.0.0
   flutter_localizations:
     sdk: flutter
   intl:

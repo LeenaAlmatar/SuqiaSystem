@@ -10,7 +10,9 @@ class TankList extends StatefulWidget {
 }
 
 class _TankListState extends State<TankList> {
-  String? selectedFilter;
+  String? selectedDistance;
+  String? selectedTemperature;
+
   var Tanks = [
     ["19", "Empty", "2nd Floor", "Cold", "1.0 Km"],
     ["12", "Full", "1st Floor", "Warm", "0.1 Km"],
@@ -23,6 +25,36 @@ class _TankListState extends State<TankList> {
     ["01", "Empty", "3rd Floor", "Cold", "1.5 Km"],
     ["22", "Full", "1st Floor", "Cold", "0.4 Km"],
   ];
+
+  List<List<String>> filteredTanks = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredTanks = List.from(Tanks);
+  }
+
+  void filterTanks() {
+    List<List<String>> tempFilteredTanks = List.from(Tanks);
+
+    if (selectedDistance != null) {
+      tempFilteredTanks.sort((a, b) {
+        if (selectedDistance == 'Nearest') {
+          return a[4].compareTo(b[4]);
+        } else {
+          return b[4].compareTo(a[4]);
+        }
+      });
+    }
+
+    if (selectedTemperature != null) {
+      tempFilteredTanks.removeWhere((tank) => tank[3] != selectedTemperature);
+    }
+
+    setState(() {
+      filteredTanks = List.from(tempFilteredTanks);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,33 +77,70 @@ class _TankListState extends State<TankList> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              DropdownButton<String>(
-                value: selectedFilter,
-                items: [
-                  DropdownMenuItem(
-                    child: Text(S.of(context).distance),
-                    value: 'Distance',
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  DropdownButton<String>(
+                    value: selectedDistance,
+                    items: [
+                      DropdownMenuItem(
+                        child: Text(S.of(context).nearest),
+                        value: 'Nearest',
+                      ),
+                      DropdownMenuItem(
+                        child: Text(S.of(context).farthest),
+                        value: 'Farthest',
+                      ),
+                    ],
+                    hint: Text(S.of(context).distance),
+                    onChanged: (value) {
+                      setState(() {
+                        selectedDistance = value;
+                        filterTanks();
+                      });
+                    },
                   ),
-                  DropdownMenuItem(
-                    child: Text(S.of(context).temperature),
-                    value: 'Temperature',
+                  DropdownButton<String>(
+                    value: selectedTemperature,
+                    items: [
+                      DropdownMenuItem(
+                        child: Text(S.of(context).cold),
+                        value: 'Cold',
+                      ),
+                      DropdownMenuItem(
+                        child: Text(S.of(context).warm),
+                        value: 'Warm',
+                      ),
+                    ],
+                    hint: Text(S.of(context).temperature),
+                    onChanged: (value) {
+                      setState(() {
+                        selectedTemperature = value;
+                        filterTanks();
+                      });
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.clear),
+                    onPressed: () {
+                      setState(() {
+                        selectedDistance = null;
+                        selectedTemperature = null;
+                        filterTanks();
+                      });
+                    },
                   ),
                 ],
-                onChanged: (value) {
-                  setState(() {
-                    selectedFilter = value;
-                  });
-                },
               ),
               ...List.generate(
-                Tanks.length,
-                (index) => GestureDetector(
+                filteredTanks.length,
+                    (index) => GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => TankInfo(
-                          tankInfo: Tanks[index],
+                          tankInfo: filteredTanks[index],
                         ),
                       ),
                     );
@@ -96,7 +165,7 @@ class _TankListState extends State<TankList> {
                         ),
                         SizedBox(width: 50),
                         Text(
-                          S.of(context).tank + '${Tanks[index][0]}',
+                          S.of(context).tank + ' ${filteredTanks[index][0]}',
                           style: TextStyle(
                             color: Color(0xff004AAB),
                             fontSize: 18,
@@ -104,7 +173,7 @@ class _TankListState extends State<TankList> {
                         ),
                         SizedBox(width: 50),
                         Text(
-                          '${Tanks[index][4]}',
+                          '${filteredTanks[index][4]}',
                           style: TextStyle(
                             color: Color(0xff004AAB),
                             fontSize: 16,
@@ -120,8 +189,7 @@ class _TankListState extends State<TankList> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding:
-        EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
+        padding: EdgeInsets.only(bottom: 8),
         child: ClipRRect(
           borderRadius: BorderRadius.vertical(
               top: Radius.circular(40), bottom: Radius.circular(40)),
@@ -150,7 +218,7 @@ class _TankListState extends State<TankList> {
                 ),
                 Material(
                   color: Color(0xff004AAB),
-                  elevation: 0, // Set elevation to 0 to prevent double shadows
+                  elevation: 0,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(80),
                     bottomRight: Radius.circular(80),
@@ -158,14 +226,13 @@ class _TankListState extends State<TankList> {
                     topLeft: Radius.circular(80),
                   ),
                   child: Container(
-                    width: 60, // Adjust the width as needed
-                    height: 60, // Adjust the height as needed
+                    width: 60,
+                    height: 60,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(80),
                         bottomRight: Radius.circular(80),
                         bottomLeft: Radius.circular(80),
-                        topLeft: Radius.circular(80),
                       ),
                       boxShadow: [
                         BoxShadow(

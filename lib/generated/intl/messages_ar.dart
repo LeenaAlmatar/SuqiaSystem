@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "employee": MessageLookupByLibrary.simpleMessage("موظف سقيا"),
         "empty": MessageLookupByLibrary.simpleMessage("فارغة"),
         "enquirers": MessageLookupByLibrary.simpleMessage("للاستفسار والدعم:"),
+        "farthest": MessageLookupByLibrary.simpleMessage("الأبعد"),
         "firstName": MessageLookupByLibrary.simpleMessage("الأسم الأول"),
         "firstNameEmpty":
             MessageLookupByLibrary.simpleMessage("رجاء قم بتعبئة اسمك الأول"),
@@ -86,7 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ادخل اسمك الأخير"),
         "lastUpd":
             MessageLookupByLibrary.simpleMessage("آخر تحديث: 2023/09/25"),
-        "locate": MessageLookupByLibrary.simpleMessage("حدد أو ارشدني"),
+        "locate": MessageLookupByLibrary.simpleMessage("ارشدني"),
         "logInButton": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
         "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "logOutMes":
@@ -95,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "بريد إلكتروني أو الرمز السري غير صحيحين"),
         "loginPage": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "mapTittle": MessageLookupByLibrary.simpleMessage("الخريطة"),
+        "nearest": MessageLookupByLibrary.simpleMessage("الأقرب"),
         "newPass": MessageLookupByLibrary.simpleMessage("الرمز السري الجديد"),
         "noAccount": MessageLookupByLibrary.simpleMessage("هل لا تملك حساب ؟"),
         "ok": MessageLookupByLibrary.simpleMessage("موافق"),
@@ -157,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "verifyEmail":
             MessageLookupByLibrary.simpleMessage("تحقق من بريدك الالكتروني"),
         "visitor": MessageLookupByLibrary.simpleMessage("زائر"),
+        "warm": MessageLookupByLibrary.simpleMessage("دافئ"),
         "welcome": MessageLookupByLibrary.simpleMessage("هلا وسهلاً فيك سقيا"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "سقيا يساعدك توصل لمياة زمزم بكل سهولة!")

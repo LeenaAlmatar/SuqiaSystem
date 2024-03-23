@@ -24,6 +24,9 @@
   "empty": "Empty",
   "floor": "Floor",
   "cold": "Cold",
+  "warm": "Warm",
+  "nearest": "nearest",
+  "farthest": "farthest",
   "locate": "Locate",
 
   "signUpTitle": "Sign Up",

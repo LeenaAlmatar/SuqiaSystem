@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/MapPage.dart';
+import 'package:suqia/screens/directions.dart';
 import 'package:suqia/screens/TankList.dart';
 import '../generated/l10n.dart';
+import 'package:latlong2/latlong.dart';
 
 
 class TankInfo extends StatelessWidget {
   final List<String> tankInfo;
+  LatLng tank1= LatLng(21.4225, 39.82674);
+  LatLng tank2= LatLng(21.4225, 39.8266);
+  LatLng tank3=LatLng(21.4221, 39.82648);
+  LatLng tank4=LatLng(21.4220, 39.82615);
+  LatLng tank5=LatLng(21.4221, 39.82577);
+  LatLng tank6=LatLng(21.4225, 39.82558);
+  LatLng tank7= LatLng(21.4227, 39.82567);
+  LatLng tank8= LatLng(21.4229, 39.82577);
+  LatLng tank9=LatLng(21.4230, 39.82598);
+  LatLng tank10 =LatLng(21.4230, 39.82636);
+  LatLng tank11 =LatLng(21.4228, 39.82652);
+  LatLng tank12 =LatLng(21.4229, 39.82664);
 
   TankInfo({required this.tankInfo});
 
@@ -166,9 +179,57 @@ class TankInfo extends StatelessWidget {
                 height: 50.0,
                 child: ElevatedButton(
                   onPressed: () {
+                    LatLng destination;
+                    switch (tankNumber) {
+                      case '1':
+                        destination = tank1;
+                        break;
+                      case '2':
+                        destination = tank2;
+                        break;
+                      case '3':
+                        destination = tank3;
+                        break;
+                      case '4':
+                        destination = tank4;
+                        break;
+                      case '5':
+                        destination = tank5;
+                        break;
+                      case '6':
+                        destination = tank6;
+                        break;
+                      case '7':
+                        destination = tank7;
+                        break;
+                      case '8':
+                        destination = tank8;
+                        break;
+                      case '9':
+                        destination = tank9;
+                        break;
+                      case '10':
+                        destination = tank10;
+                        break;
+                      case '11':
+                        destination = tank11;
+                        break;
+                      case '12':
+                        destination = tank12;
+                        break;
+                      default:
+                        destination = LatLng(21.4222, 39.82670); // Default destination
+                        break;
+                    }
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => MapPage()));
+                        MaterialPageRoute(
+                          builder: (context) => DierPage(
+                            destination: destination,
+                          ),
+                        ),
+                    );
                   },
+
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),

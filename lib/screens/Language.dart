@@ -9,6 +9,13 @@ class LanguagePage extends StatefulWidget {
 class _LanguagePageState extends State<LanguagePage> {
   String selectedLanguage = 'en';
 
+  void _changeLanguage(String languageCode) {
+    Locale newLocale = Locale(languageCode);
+    setState(() {
+      S.load(newLocale);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +52,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        S.of(context).lanSelect,//'Select Language',
+                        S.of(context).lanSelect,
                         style: TextStyle(
                           fontSize: 22,
                           color: Color(0xff004AAB),
@@ -54,7 +61,7 @@ class _LanguagePageState extends State<LanguagePage> {
                       SizedBox(height: 8),
                       RadioListTile(
                         title: Text(
-                          S.of(context).lanEn,//'English',
+                          S.of(context).lanEn,
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xFF333333),
@@ -63,6 +70,7 @@ class _LanguagePageState extends State<LanguagePage> {
                         value: 'en',
                         groupValue: selectedLanguage,
                         onChanged: (value) {
+                          _changeLanguage(value.toString());
                           setState(() {
                             selectedLanguage = value.toString();
                           });
@@ -70,7 +78,7 @@ class _LanguagePageState extends State<LanguagePage> {
                       ),
                       RadioListTile(
                         title: Text(
-                          S.of(context).lanAr,// 'Arabic',
+                          S.of(context).lanAr,
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(0xFF333333),
@@ -79,6 +87,7 @@ class _LanguagePageState extends State<LanguagePage> {
                         value: 'ar',
                         groupValue: selectedLanguage,
                         onChanged: (value) {
+                          _changeLanguage(value.toString());
                           setState(() {
                             selectedLanguage = value.toString();
                           });
@@ -98,8 +107,7 @@ class _LanguagePageState extends State<LanguagePage> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text(S.of(context).langMessg //'Language Changed Successfully'
-                            ),
+                            title: Text(S.of(context).langMessg),
                             content: Text(S.of(context).lanSelect + '$selectedLanguage'),
                             actions: <Widget>[
                               TextButton(
@@ -119,7 +127,7 @@ class _LanguagePageState extends State<LanguagePage> {
                       ), backgroundColor: Color(0xff004AAB),
                     ),
                     child: Text(
-                      S.of(context).lanChange, //'Change Language',
+                      S.of(context).lanChange,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

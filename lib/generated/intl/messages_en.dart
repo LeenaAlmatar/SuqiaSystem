@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "empty": MessageLookupByLibrary.simpleMessage("Empty"),
         "enquirers":
             MessageLookupByLibrary.simpleMessage("For enquirers and support:"),
+        "farthest": MessageLookupByLibrary.simpleMessage("farthest"),
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "firstNameEmpty": MessageLookupByLibrary.simpleMessage(
             "Please enter your first name"),
@@ -98,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Invalid email or password"),
         "loginPage": MessageLookupByLibrary.simpleMessage("Login"),
         "mapTittle": MessageLookupByLibrary.simpleMessage("Map"),
+        "nearest": MessageLookupByLibrary.simpleMessage("nearest"),
         "newPass": MessageLookupByLibrary.simpleMessage("New Password"),
         "noAccount":
             MessageLookupByLibrary.simpleMessage("Don\\\'t have an account? "),
@@ -160,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "verifyEmail":
             MessageLookupByLibrary.simpleMessage("VERIFY YOUR EMAIL ADDRESS"),
         "visitor": MessageLookupByLibrary.simpleMessage("Visitor"),
+        "warm": MessageLookupByLibrary.simpleMessage("Warm"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome To Suqia"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "Where you can reach water Zamzam easily!")

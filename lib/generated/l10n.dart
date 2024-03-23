@@ -270,6 +270,36 @@ class S {
     );
   }
 
+  /// `Warm`
+  String get warm {
+    return Intl.message(
+      'Warm',
+      name: 'warm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `nearest`
+  String get nearest {
+    return Intl.message(
+      'nearest',
+      name: 'nearest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `farthest`
+  String get farthest {
+    return Intl.message(
+      'farthest',
+      name: 'farthest',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Locate`
   String get locate {
     return Intl.message(
