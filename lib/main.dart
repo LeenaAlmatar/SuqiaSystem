@@ -1,43 +1,39 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:suqia/screens/WelcomePage.dart';
-
-//import 'package:suqia/generated/l10n.dart';
+import 'generated/l10n.dart';
 
 void main() {
-  runApp(
-    MyApp(),
-  );
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
+class MyApp extends StatelessWidget {
+  static Locale? _locale;
 
- //static _MyAppState of(BuildContext context) => context.findAncestorStateOfType<_MyAppState>();
-}
-
-class _MyAppState extends State<MyApp> {
- // Locale _locale;
-
-  // void setLocale(Locale value) {
-  //   setState(() {
-  //     _locale = value;
-  //   });
-  // }
+  static void setLocale(BuildContext context, Locale locale) {
+    _locale = locale;
+    Get.updateLocale(locale);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // locale: _locale,
-      // localizationsDelegates: [
-      //   S.delegate,
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      // ],
-      // supportedLocales: S.delegate.supportedLocales,
+    return GetMaterialApp(
+      locale: _locale ?? Locale('en'), // Set initial locale to English
+      fallbackLocale: Locale('en'), // Set fallback locale to English
       title: 'Suqia',
+      localizationsDelegates: [
+        // Add more localization delegates as needed
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        // Define supported locales
+        Locale('en'),
+        Locale('ar'), // Remove 'ar' locale if not fully supported
+      ],
       home: WelcomePage(),
     );
   }

@@ -6,7 +6,7 @@ class LanguagePage extends StatefulWidget {
 }
 
 class _LanguagePageState extends State<LanguagePage> {
-  String selectedLanguage = 'English';
+  String selectedLanguage = 'en';
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class _LanguagePageState extends State<LanguagePage> {
                             color: Color(0xFF333333),
                           ),
                         ),
-                        value: 'English',
+                        value: 'en',
                         groupValue: selectedLanguage,
                         onChanged: (value) {
                           setState(() {
@@ -75,7 +75,7 @@ class _LanguagePageState extends State<LanguagePage> {
                             color: Color(0xFF333333),
                           ),
                         ),
-                        value: 'Arabic',
+                        value: 'ar',
                         groupValue: selectedLanguage,
                         onChanged: (value) {
                           setState(() {
@@ -114,8 +114,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
-                      ),
-                      primary: Color(0xff004AAB),
+                      ), backgroundColor: Color(0xff004AAB),
                     ),
                     child: Text(
                       'Change Language',

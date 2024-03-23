@@ -119,7 +119,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: Text('OK'),
+                                  child: Text('Ok'),
                                 ),
                               ],
                             );
@@ -129,8 +129,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
-                        ),
-                        primary: Color(0xFF9199A1),
+                        ), backgroundColor: Color(0xFF9199A1),
                       ),
                       child: Text(
                         'Save',

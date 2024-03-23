@@ -187,8 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
-                            ),
-                            primary: Color(0xff004AAB),
+                            ), backgroundColor: Color(0xff004AAB),
                           ),
                           child: Text(
                             'Login',
@@ -219,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                             //Navigator.pop(context); // Go back to the previous screen
                           },
                           child: Text(
-                            'Sign-Up',
+                            'Sign Up',
                             style: TextStyle(
                               fontSize: 14,
                               color: Color(0xff004AAB),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:suqia/screens/IdentityPage.dart';
 
+import '../generated/l10n.dart';
+
 class WelcomePage extends StatefulWidget {
   @override
   _WelcomePageState createState() => _WelcomePageState();
@@ -44,16 +46,16 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               SizedBox(height: 60),
               Text(
-                // S.of(context).welcome,
-                "Welcome To Suqia",
+                S.of(context).welcome,
+                //"Welcome To Suqia",
                 style: TextStyle(
                   fontSize: 24,
                   color: Color(0xff004AAB),
                 ),
               ),
               Text(
-                //     //S.of(context).welcomeMessage,
-                "Where you can reach water Zamzam easily!",
+                S.of(context).welcomeMessage,
+                //"Where you can reach water Zamzam easily!",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
