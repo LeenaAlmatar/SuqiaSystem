@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:suqia/screens/WelcomePage.dart';
+import 'package:first_app/screens/WelcomePage.dart';
 import 'generated/l10n.dart';
 
 void main() {

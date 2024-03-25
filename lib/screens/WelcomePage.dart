@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:suqia/screens/IdentityPage.dart';
+import 'package:first_app/screens/IdentityPage.dart';
 
 import '../generated/l10n.dart';
 
@@ -42,7 +42,7 @@ class _WelcomePageState extends State<WelcomePage> {
               Container(
                 height: 300,
                 width: 300,
-                child: Image.asset("Assets/Suqia.jpg"),
+                child: Image.asset("assets/Suqia.jpg"),
               ),
               SizedBox(height: 60),
               Text(

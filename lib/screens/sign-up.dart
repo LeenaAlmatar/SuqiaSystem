@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/Log-in.dart';
-import 'package:suqia/screens/Employee.dart';
+import 'package:first_app/screens/Log-in.dart';
+import 'package:first_app/screens/Employee.dart';
 import '../generated/l10n.dart';
 
 class SignUp extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SignUpState extends State<SignUp> {
       ''; // Define variable to store confirm password input
   bool _obscurePassword = true; // Variable to toggle password visibility
   bool _obscureConfirmPassword =
-      true; // Variable to toggle confirm password visibility
+  true; // Variable to toggle confirm password visibility
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class _SignUpState extends State<SignUp> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'Assets/Suqia.jpg',
+                    'assets/Suqia.jpg',
                     width: 350,
                     height: 100,
                   ),
@@ -146,7 +146,7 @@ class _SignUpState extends State<SignUp> {
                     TextFormField(
                       decoration: InputDecoration(
                         hintText:
-                            S.of(context).emailMessage, //'Enter your email',
+                        S.of(context).emailMessage, //'Enter your email',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
@@ -186,7 +186,7 @@ class _SignUpState extends State<SignUp> {
                     TextFormField(
                       decoration: InputDecoration(
                         hintText:
-                            S.of(context).passMessage, //'Enter your password',
+                        S.of(context).passMessage, //'Enter your password',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
@@ -254,7 +254,7 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () {
                             setState(() {
                               _obscureConfirmPassword =
-                                  !_obscureConfirmPassword;
+                              !_obscureConfirmPassword;
                             });
                           },
                         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/PasswordRestVerification.dart';
+import 'package:first_app/screens/PasswordRestVerification.dart';
 import '../generated/l10n.dart';
 
 class ResetPasswordPage extends StatelessWidget {

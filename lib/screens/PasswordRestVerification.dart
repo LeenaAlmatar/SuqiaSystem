@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/RestPassword.dart';
+import 'package:first_app/screens/RestPassword.dart';
 import '../generated/l10n.dart';
 
 class PasswordVerificationPage extends StatelessWidget {

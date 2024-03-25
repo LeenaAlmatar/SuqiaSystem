@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/Verification.dart';
-import 'package:suqia/screens/EmailResetPassword.dart';
-import 'package:suqia/screens/Employee.dart';
-import 'package:suqia/screens/sign-up.dart';
+import 'package:first_app/screens/Verification.dart';
+import 'package:first_app/screens/EmailResetPassword.dart';
+import 'package:first_app/screens/Employee.dart';
+import 'package:first_app/screens/sign-up.dart';
 import '../generated/l10n.dart';
 
 class LoginPage extends StatefulWidget {
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'Assets/Suqia.jpg',
+                    'assets/Suqia.jpg',
                     width: 350,
                     height: 100,
                   ),

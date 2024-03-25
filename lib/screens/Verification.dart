@@ -33,7 +33,7 @@ class VerificationPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'Assets/Suqia.jpg', // Adjust the image path
+                    'assets/Suqia.jpg', // Adjust the image path
                     width: 350,
                     height: 100,
                   ),
@@ -48,7 +48,7 @@ class VerificationPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                    S.of(context).verifyEmail,
+                      S.of(context).verifyEmail,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -143,7 +143,7 @@ class VerificationPage extends StatelessWidget {
                                   // Resend code functionality
                                 },
                                 child: Text(
-                                    S.of(context).resendCode,
+                                  S.of(context).resendCode,
                                   //'Resend Code',
                                   style: TextStyle(
                                     color: Color(0xFF33363F),
