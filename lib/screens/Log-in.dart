@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/Verification.dart';
 import 'package:suqia/screens/EmailResetPassword.dart';
-import 'package:suqia/classes/Employee.dart';
+import 'package:suqia/screens/Employee.dart';
 import 'package:suqia/screens/sign-up.dart';
 import '../generated/l10n.dart';
 

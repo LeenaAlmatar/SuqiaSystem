@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suqia/screens/Log-in.dart';
-import 'package:suqia/classes/Employee.dart';
+import 'package:suqia/screens/Employee.dart';
 import '../generated/l10n.dart';
 
 class SignUp extends StatefulWidget {
