@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/Verification.dart';
-import 'package:first_app/screens/EmailResetPassword.dart';
-import 'package:first_app/screens/Employee.dart';
-import 'package:first_app/screens/sign-up.dart';
+import 'package:suqia/screens/Verification.dart';
+import 'package:suqia/screens/Employee.dart';
+import 'package:suqia/screens/sign-up.dart';
 import '../generated/l10n.dart';
 
 class LoginPage extends StatefulWidget {
@@ -123,10 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ResetPasswordPage()),
-                        );
+
                       },
                       child: Text(
                         S.of(context).passForget,//'Forgot Password?',

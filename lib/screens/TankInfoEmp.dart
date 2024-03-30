@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/directions.dart';
-import 'package:first_app/screens/TankListEmp.dart';
+import 'package:suqia/screens/directions.dart';
+import 'package:suqia/screens/TankListEmp.dart';
 import '../generated/l10n.dart';
 import 'package:latlong2/latlong.dart';
 

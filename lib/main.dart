@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:first_app/screens/WelcomePage.dart';
+import 'package:suqia/screens/WelcomePage.dart';
 import 'generated/l10n.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:suqia/screens/TankListEmp.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  getToken(); // Call getToken function when the app starts
   runApp(MyApp());
+}
+
+void getToken() async {
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  String? token = await messaging.getToken();
+  print('FCM Token: $token');
 }
 
 class MyApp extends StatelessWidget {

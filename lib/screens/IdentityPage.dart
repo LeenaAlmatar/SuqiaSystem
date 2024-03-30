@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:first_app/screens/Log-in.dart';
-import 'package:first_app/screens/MapPageEmp.dart';
-import 'package:first_app/screens/MapPageVist.dart';
+import 'package:suqia/screens/Log-in.dart';
+import 'package:suqia/screens/MapPageEmp.dart';
+import 'package:suqia/screens/MapPageVist.dart';
 import '../generated/l10n.dart';
-import 'package:first_app/main.dart';
+import 'package:suqia/main.dart';
 
 class IdentityPage extends StatefulWidget {
   @override

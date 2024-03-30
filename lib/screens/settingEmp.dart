@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/MapPageEmp.dart';
-import 'package:first_app/screens/TankListEmp.dart';
-import 'package:first_app/screens/profile-Edit.dart';
-import 'package:first_app/screens/Language.dart';
-import 'package:first_app/screens/Privacy.dart';
-import 'package:first_app/screens/ContactUs.dart';
-import 'package:first_app/screens/AboutSuqia.dart';
+import 'package:suqia/screens/MapPageEmp.dart';
+import 'package:suqia/screens/TankListEmp.dart';
+import 'package:suqia/screens/profile-Edit.dart';
+import 'package:suqia/screens/Language.dart';
+import 'package:suqia/screens/Privacy.dart';
+import 'package:suqia/screens/ContactUs.dart';
+import 'package:suqia/screens/AboutSuqia.dart';
 import '../generated/l10n.dart';
 
 class SettingsPage extends StatelessWidget {

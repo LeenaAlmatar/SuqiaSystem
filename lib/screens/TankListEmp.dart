@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/TankInfoEmp.dart';
-import 'package:first_app/screens/settingEmp.dart';
-import 'package:first_app/screens/MapPageEmp.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Cloud Firestore
+import 'package:suqia/screens/TankInfoEmp.dart'; // Import TankInfoEmp if needed
+import 'package:suqia/screens/settingEmp.dart'; // Import SettingsPage if needed
+import 'package:suqia/screens/MapPageEmp.dart'; // Import MapPageEmp if needed
 import '../generated/l10n.dart';
 
 class TankListEmp extends StatefulWidget {
@@ -10,12 +12,14 @@ class TankListEmp extends StatefulWidget {
 }
 
 class _TankListEmpState extends State<TankListEmp> {
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
+
   String? selectedDistance;
   String? selectedTemperature;
 
   var Tanks = [
-    ["1", "Empty", "Floor1", "Warm" ,"0.2 Km"],
-    ["2", "Full", "Floor1", "Cold" ,"0.3 Km"],
+    ["1", "Empty", "Floor1", "Warm", "0.2 Km"],
+    ["2", "Full", "Floor1", "Cold", "0.3 Km"],
     ["3", "Empty", "Floor1", "Cold", "0.1 Km"],
     ["4", "Full", "Floor1", "Cold", "0.5 Km"],
     ["5", "Full", "Floor1", "Warm", "0.7 Km"],
@@ -26,7 +30,6 @@ class _TankListEmpState extends State<TankListEmp> {
     ["10", "Full", "Floor1", "Warm", "1.0 Km"],
     ["11", "Full", "Floor1", "Cold", "0.9 Km"],
     ["12", "Full", "Floor1", "Warm", "0.9 Km"],
-
   ];
 
   List<List<String>> filteredTanks = [];
@@ -34,7 +37,48 @@ class _TankListEmpState extends State<TankListEmp> {
   @override
   void initState() {
     super.initState();
+    _subscribeToTankStatusChanges();
     filteredTanks = List.from(Tanks);
+  }
+
+  void _subscribeToTankStatusChanges() {
+    _db.collection('Tanks').snapshots().listen((snapshot) {
+      snapshot.docChanges.forEach((change) {
+        if (change.type == DocumentChangeType.modified) {
+          Map<String, dynamic> tankData = change.doc.data() as Map<String, dynamic>;
+          if (tankData['status'] == 'Empty') {
+            _showTankStatusNotification(tankData['tankNumber']);
+          }
+        }
+      });
+    });
+  }
+
+  void _showTankStatusNotification(String tankNumber) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Tank Status Changed'),
+          content: Text('Tank $tankNumber is now empty. Please refill it.'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Dismiss'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Locate'),
+              onPressed: () {
+                // Navigate to Tank Information page
+                // Example: Navigator.push(context, MaterialPageRoute(builder: (context) => TankInfoEmp(tankNumber: tankNumber)));
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void filterTanks() {
@@ -62,216 +106,184 @@ class _TankListEmpState extends State<TankListEmp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(S.of(context).tListTitle),
-          centerTitle: true,
-          backgroundColor: Color(0xFFF1F2F3),
-          titleTextStyle: TextStyle(
-            color: Color(0xff004AAB),
-            fontSize: 24,
-          ),
+      appBar: AppBar(
+        title: Text(S.of(context).tListTitle),
+        centerTitle: true,
+        backgroundColor: Color(0xFFF1F2F3),
+        titleTextStyle: TextStyle(
+          color: Color(0xff004AAB),
+          fontSize: 24,
         ),
-        body: Scrollbar(
-          child: SingleChildScrollView(
-            controller: ScrollController(),
-            physics: AlwaysScrollableScrollPhysics(),
-            child: Container(
-              width: 390,
-              height: 1000,
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      DropdownButton<String>(
-                        value: selectedDistance,
-                        items: [
-                          DropdownMenuItem(
-                            child: Text(S.of(context).nearest),
-                            value: 'Nearest',
-                          ),
-                          DropdownMenuItem(
-                            child: Text(S.of(context).farthest),
-                            value: 'Farthest',
-                          ),
-                        ],
-                        hint: Text(S.of(context).distance),
-                        onChanged: (value) {
-                          setState(() {
-                            selectedDistance = value;
-                            filterTanks();
-                          });
-                        },
-                      ),
-                      DropdownButton<String>(
-                        value: selectedTemperature,
-                        items: [
-                          DropdownMenuItem(
-                            child: Text(S.of(context).cold),
-                            value: 'Cold',
-                          ),
-                          DropdownMenuItem(
-                            child: Text(S.of(context).warm),
-                            value: 'Warm',
-                          ),
-                        ],
-                        hint: Text(S.of(context).temperature),
-                        onChanged: (value) {
-                          setState(() {
-                            selectedTemperature = value;
-                            filterTanks();
-                          });
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.clear),
-                        onPressed: () {
-                          setState(() {
-                            selectedDistance = null;
-                            selectedTemperature = null;
-                            filterTanks();
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                  ...List.generate(
-                    filteredTanks.length,
-                        (index) => GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TankInfoEmp(
-                              tankInfo: filteredTanks[index],
-                            ),
-                          ),
-                        );
+      ),
+      body: Scrollbar(
+        child: SingleChildScrollView(
+          controller: ScrollController(),
+          physics: AlwaysScrollableScrollPhysics(),
+          child: Container(
+            width: 390,
+            height: 1000,
+            color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DropdownButton<String>(
+                      value: selectedDistance,
+                      items: [
+                        DropdownMenuItem(
+                          child: Text(S.of(context).nearest),
+                          value: 'Nearest',
+                        ),
+                        DropdownMenuItem(
+                          child: Text(S.of(context).farthest),
+                          value: 'Farthest',
+                        ),
+                      ],
+                      hint: Text(S.of(context).distance),
+                      onChanged: (value) {
+                        setState(() {
+                          selectedDistance = value;
+                          filterTanks();
+                        });
                       },
-                      child: Container(
-                        width: 330,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF1F2F3),
-                          borderRadius: BorderRadius.circular(16),
+                    ),
+                    DropdownButton<String>(
+                      value: selectedTemperature,
+                      items: [
+                        DropdownMenuItem(
+                          child: Text(S.of(context).cold),
+                          value: 'Cold',
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child:  Image.asset(
-                                filteredTanks[index][0] == '1' || filteredTanks[index][0] == '3'
-                                    ? "assets/Gtank.png"
-                                    : "assets/tank.png",
-                              ),
-                            ),
-                            SizedBox(width: 50),
-                            Text(
-                              S.of(context).tank + ' ${filteredTanks[index][0]}',
-                              style: TextStyle(
-                                color: Color(0xff004AAB),
-                                fontSize: 18,
-                              ),
-                            ),
-                            SizedBox(width: 50),
-                            Text(
-                              '${filteredTanks[index][4]}',
-                              style: TextStyle(
-                                color: Color(0xff004AAB),
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
+                        DropdownMenuItem(
+                          child: Text(S.of(context).warm),
+                          value: 'Warm',
                         ),
+                      ],
+                      hint: Text(S.of(context).temperature),
+                      onChanged: (value) {
+                        setState(() {
+                          selectedTemperature = value;
+                          filterTanks();
+                        });
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.clear),
+                      onPressed: () {
+                        setState(() {
+                          selectedDistance = null;
+                          selectedTemperature = null;
+                          filterTanks();
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                ...List.generate(
+                  filteredTanks.length,
+                      (index) => GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TankInfoEmp(
+                            tankInfo: filteredTanks[index],
+                          ),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 330,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(vertical: 8),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF1F2F3),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            child: Image.asset(
+                              filteredTanks[index][0] == '1' || filteredTanks[index][0] == '3'
+                                  ? "assets/Gtank.png"
+                                  : "assets/tank.png",
+                            ),
+                          ),
+                          SizedBox(width: 50),
+                          Text(
+                            S.of(context).tank + ' ${filteredTanks[index][0]}',
+                            style: TextStyle(
+                              color: Color(0xff004AAB),
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(width: 50),
+                          Text(
+                            '${filteredTanks[index][4]}',
+                            style: TextStyle(
+                              color: Color(0xff004AAB),
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ).toList(),
-                ],
-              ),
+                  ),
+                ).toList(),
+              ],
             ),
           ),
         ),
-        bottomNavigationBar: Padding(
+      ),
+      bottomNavigationBar: Padding(
         padding: EdgeInsets.only(bottom: 8),
-    child: ClipRRect(
-    borderRadius: BorderRadius.vertical(
-    top: Radius.circular(40),
-    bottom: Radius.circular(40),
-    ),
-    child: BottomAppBar(
-    color: Color(0xff004AAB),
-    child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    children: [
-    IconButton(
-    icon: Icon(Icons.location_on, color: Colors.white, size: 40),
-    onPressed: () {
-    Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => MapPageEmp()),
-    );
-    },
-    ),
-    Material(
-    color: Color(0xff004AAB),
-    elevation: 0,
-    borderRadius: BorderRadius.only(
-    topRight: Radius.circular(80),
-    bottomRight: Radius.circular(80),
-    bottomLeft: Radius.circular(80),
-    topLeft: Radius.circular(80),
-    ),
-    child: Container(
-    width: 60,
-    height: 60,
-    decoration: BoxDecoration(
-    borderRadius: BorderRadius.only(
-    topRight: Radius.circular(80),
-    bottomRight: Radius.circular(80),
-    bottomLeft: Radius.circular(80),
-    ),
-    boxShadow: [
-    BoxShadow(
-    color: Color(
-    0xff0054bb,
-    ), // Adjust the shadow color and opacity
-    spreadRadius:
-    50, // Adjust the spread radius to make the shadow wider
-    blurRadius:2, // Adjust the blur radius for smoother edges
-    ),
-    ],
-    ),
-      child: IconButton(
-        icon: Icon(Icons.opacity, color: Colors.white, size: 40),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => TankListEmp()),
-          );
-        },
-      ),
-    ),
-    ),
-      IconButton(
-        icon: Icon(Icons.settings, color: Colors.white, size: 40),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SettingsPage()),
-          );
-        },
-      ),
-    ],
-    ),
-    ),
-    ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(40),
+            bottom: Radius.circular(40),
+          ),
+          child: BottomAppBar(
+            color: Color(0xff004AAB),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.location_on, color: Colors.white, size: 40),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPageEmp()),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.opacity, color: Colors.white, size: 40),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TankListEmp()),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.settings, color: Colors.white, size: 40),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsPage()),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
         ),
+      ),
     );
   }
 }
-

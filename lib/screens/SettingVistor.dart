@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/MapPageVist.dart';
-import 'package:first_app/screens/TankListVist.dart';
-import 'package:first_app/screens/Language.dart';
-import 'package:first_app/screens/Privacy.dart';
-import 'package:first_app/screens/ContactUs.dart';
-import 'package:first_app/screens/AboutSuqia.dart';
+import 'package:suqia/screens/MapPageVist.dart';
+import 'package:suqia/screens/TankListVist.dart';
+import 'package:suqia/screens/Language.dart';
+import 'package:suqia/screens/Privacy.dart';
+import 'package:suqia/screens/ContactUs.dart';
+import 'package:suqia/screens/AboutSuqia.dart';
 import '../generated/l10n.dart';
 
 class SettingsPageVistor extends StatelessWidget {

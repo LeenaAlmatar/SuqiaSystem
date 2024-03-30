@@ -1,9 +1,9 @@
-import 'package:first_app/screens/MapPageVist.dart';
-import 'package:first_app/screens/SettingVistor.dart';
+import 'package:suqia/screens/MapPageVist.dart';
+import 'package:suqia/screens/SettingVistor.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/screens/TankInfoVist.dart';
-import 'package:first_app/screens/settingEmp.dart';
-import 'package:first_app/screens/MapPageEmp.dart';
+import 'package:suqia/screens/TankInfoVist.dart';
+import 'package:suqia/screens/settingEmp.dart';
+import 'package:suqia/screens/MapPageEmp.dart';
 import '../generated/l10n.dart';
 
 class TankListVist extends StatefulWidget {
