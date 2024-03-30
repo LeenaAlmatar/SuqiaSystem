@@ -5,6 +5,7 @@ import 'package:suqia/screens/TankInfoEmp.dart'; // Import TankInfoEmp if needed
 import 'package:suqia/screens/settingEmp.dart'; // Import SettingsPage if needed
 import 'package:suqia/screens/MapPageEmp.dart'; // Import MapPageEmp if needed
 import '../generated/l10n.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class TankListEmp extends StatefulWidget {
   @override
@@ -13,6 +14,8 @@ class TankListEmp extends StatefulWidget {
 
 class _TankListEmpState extends State<TankListEmp> {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
   String? selectedDistance;
   String? selectedTemperature;
@@ -71,8 +74,8 @@ class _TankListEmpState extends State<TankListEmp> {
             TextButton(
               child: Text('Locate'),
               onPressed: () {
-                // Navigate to Tank Information page
-                // Example: Navigator.push(context, MaterialPageRoute(builder: (context) => TankInfoEmp(tankNumber: tankNumber)));
+
+               // Navigator.push(context, MaterialPageRoute(builder: (context) => TankInfoEmp(tankNumber: tankNumber)));
               },
             ),
           ],

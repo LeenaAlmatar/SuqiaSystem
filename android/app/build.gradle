@@ -25,7 +25,7 @@ if (flutterVersionName == null) {
 
 apply plugin: 'com. android. application'
 apply plugin: 'com-google-gms-google-services'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply from: "/packages/suqia/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "com.example.suqia"
@@ -70,5 +70,4 @@ flutter {
 }
 
 dependencies {
-
 }

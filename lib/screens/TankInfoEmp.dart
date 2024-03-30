@@ -3,9 +3,14 @@ import 'package:suqia/screens/directions.dart';
 import 'package:suqia/screens/TankListEmp.dart';
 import '../generated/l10n.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 
 class TankInfoEmp extends StatelessWidget {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+
   List<String> tankInfo;
   LatLng tank1= LatLng(21.4225, 39.82674);
   LatLng tank2= LatLng(21.4225, 39.8266);
