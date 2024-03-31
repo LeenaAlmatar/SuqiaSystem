@@ -2,10 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:suqia/screens/Log-in.dart';
-import 'package:suqia/screens/MapPage.dart';
+import 'package:first_app/screens/Log-in.dart';
+import 'package:first_app/screens/MapPageEmp.dart';
+import 'package:first_app/screens/MapPageVist.dart';
 import '../generated/l10n.dart';
-import 'package:suqia/main.dart';
+import 'package:first_app/main.dart';
 
 class IdentityPage extends StatefulWidget {
   @override
@@ -65,9 +66,9 @@ class _IdentityPageState extends State<IdentityPage> {
 
   void _visitorSignIn() {
     //requestNotificationPermissions().then((_) {
-     // requestLocationPermissions().then((_) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MapPage()));
+    // requestLocationPermissions().then((_) {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => MapPageVist()));
     //  });
     //});
   }
@@ -90,7 +91,7 @@ class _IdentityPageState extends State<IdentityPage> {
             Container(
               height: 200,
               width: 200,
-              child: Image.asset("Assets/Suqia.jpg"),
+              child: Image.asset("assets/Suqia.jpg"),
             ),
             SizedBox(height: 90),
             ElevatedButton(

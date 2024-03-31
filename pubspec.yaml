@@ -1,4 +1,4 @@
-name: suqia
+name: first_app
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -21,12 +21,12 @@ version: 1.0.0+1
 environment:
   sdk: '>=3.2.6 <4.0.0'
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
+  # Dependencies specify other packages that your package needs in order to work.
+  # To automatically upgrade your package dependencies to the latest versions
+  # consider running `flutter pub upgrade --major-versions`. Alternatively,
+  # dependencies can be manually updated by changing the version numbers below to
+  # the latest version available on pub.dev. To see which dependencies have newer
+  # versions available, run `flutter pub outdated`.
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +40,11 @@ dependencies:
   permission_handler: ^8.2.0
   cupertino_icons: ^1.0.2
   flutter_polyline_points: ^1.0.0
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.3.2
+  firebase_auth:
+  shared_preferences:
+  firebase_messaging:
   dio: ^4.0.0
   flutter_localizations:
     sdk: flutter
@@ -55,7 +60,7 @@ dev_dependencies:
 
 
 
-    # The "flutter_lints" package below contains a set of recommended lints to
+  # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
@@ -81,6 +86,8 @@ flutter:
     - assets/back.png
     - assets/tank.png
     - assets/Tank1.png
+    - assets/Gtank.png
+    - assets/Suqia.jpg
 
   # An image asset can refer to one or more
   # An image asset can refer to one or more resolution-specific "variants", see

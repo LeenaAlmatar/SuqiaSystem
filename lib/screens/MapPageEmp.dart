@@ -1,52 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:first_app/screens/TankListEmp.dart';
+import 'package:first_app/screens/settingEmp.dart';
+import '../generated/l10n.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:first_app/screens/TankInfoEmp.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import '../generated/l10n.dart';
 
 
-
-class DierPage extends StatefulWidget {
-  final LatLng destination;
-  DierPage({required this.destination});
+class MapPageEmp extends StatefulWidget {
   @override
-  _DierPageState createState() => _DierPageState(destination: destination);
+  _MapPageEmpState createState() => _MapPageEmpState();
 }
 
-class _DierPageState extends State<DierPage> {
-  final LatLng destination;
+class _MapPageEmpState extends State<MapPageEmp> {
   LatLng _userLocation = LatLng(21.4222, 39.82670); // Default location (0, 0)
   List<LatLng> polylineCoordinates = [];
   PolylinePoints polylinePoints = PolylinePoints();
-  _DierPageState({required this.destination});
-  LatLng tank1= LatLng(21.4225, 39.82674);
-  LatLng tank2= LatLng(21.4225, 39.8266);
-  LatLng tank3=LatLng(21.4221, 39.82648);
-  LatLng tank4=LatLng(21.4220, 39.82615);
-  LatLng tank5=LatLng(21.4221, 39.82577);
-  LatLng tank6=LatLng(21.4225, 39.82558);
-  LatLng tank7= LatLng(21.4227, 39.82567);
-  LatLng tank8= LatLng(21.4229, 39.82577);
-  LatLng tank9=LatLng(21.4230, 39.82598);
-  LatLng tank10 =LatLng(21.4230, 39.82636);
-  LatLng tank11 =LatLng(21.4228, 39.82652);
-  LatLng tank12 =LatLng(21.4229, 39.82664);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xFF0000CC)),
-          onPressed: () {
-            Navigator.pop(context); // Go back to the previous screen
-          },
-        ),
         title: Text(S.of(context).mapTittle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
-          color: Color(0xFF0000CC),
+          color: Color(0xff004AAB),
           fontSize: 24,
         ),
       ),
@@ -81,13 +61,13 @@ class _DierPageState extends State<DierPage> {
                     point: LatLng(21.4225, 39.82674),
                     width: 80,
                     height: 80,
-                    builder: (context) => destination == tank1 || destination == tank3 ? GestureDetector(
+                    builder: (context) => GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => TankInfoEmp(
-                              tankInfo: ['1', 'Empty', 'Floor1', '-'],
+                              tankInfo: ['1', 'Empty', 'Floor1', 'Warm'],
                             ),
                           ),
                         );
@@ -97,7 +77,7 @@ class _DierPageState extends State<DierPage> {
                         size: 30,
                         color: Colors.grey,
                       ),
-                    ):SizedBox(),
+                    ),
                   ),
                   Marker(
                     point: LatLng(21.4225, 39.8266),
@@ -125,13 +105,13 @@ class _DierPageState extends State<DierPage> {
                     point: LatLng(21.4221, 39.82648),
                     width: 80,
                     height: 80,
-                    builder: (context) => destination == tank1 || destination == tank3 ? GestureDetector(
+                    builder: (context) => GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => TankInfoEmp(
-                              tankInfo: ['3', 'Empty', 'Floor1', '-'],
+                              tankInfo: ['3', 'Empty', 'Floor1', 'Cold'],
                             ),
                           ),
                         );
@@ -141,7 +121,7 @@ class _DierPageState extends State<DierPage> {
                       color: Colors.grey, // You can adjust the color as needed
 
                     ),
-                    ):SizedBox(),),
+                    ),),
                   Marker(
                     point: LatLng(21.4220, 39.82615),
                     width: 30,
@@ -328,171 +308,89 @@ class _DierPageState extends State<DierPage> {
 
                 ],
               ),
-              PolylineLayer(
-                polylines: [
-
-                  destination==tank12 ? Polyline(
-                    points: [
-                      LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4224, 39.82652),
-                      LatLng(21.4225, 39.82653),
-                      LatLng(21.4226, 39.82653),
-                      LatLng(21.4227, 39.82649),
-                      LatLng(21.4228, 39.82640),
-                      LatLng(21.4229, 39.82646),
-                      LatLng(21.4229, 39.82654),
-                      LatLng(21.4229, 39.82659)
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3, // Width of the route polyline
-                  ):
-
-                  destination==tank11 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4224, 39.82652),
-                      LatLng(21.4225, 39.82653),
-                      LatLng(21.4226, 39.82653),
-                      LatLng(21.4227, 39.82649),
-                      LatLng(21.4228, 39.82640),
-                      LatLng(21.4228, 39.82646),
-
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):                 destination==tank10 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4224, 39.82652),
-                      LatLng(21.4225, 39.82653),
-                      LatLng(21.4226, 39.82653),
-                      LatLng(21.4227, 39.82649),
-                      LatLng(21.4228, 39.82640),
-                      LatLng(21.4229, 39.82624),
-                      LatLng(21.4230, 39.82627),
-                      LatLng(21.4230, 39.82631),
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):        destination==tank9 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4224, 39.82652),
-                      LatLng(21.4225, 39.82653),
-                      LatLng(21.4226, 39.82653),
-                      LatLng(21.4227, 39.82649),
-                      LatLng(21.4228, 39.82640),
-                      LatLng(21.4229, 39.82616),
-                      LatLng(21.4229, 39.82610),
-                      LatLng(21.4230, 39.82610),
-                      LatLng(21.4230, 39.8260),
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):     destination==tank8 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4224, 39.82652),
-                      LatLng(21.4225, 39.82653),
-                      LatLng(21.4226, 39.82653),
-                      LatLng(21.4227, 39.82649),
-                      LatLng(21.4228, 39.82640),
-                      LatLng(21.4229, 39.82616),
-                      LatLng(21.4229, 39.82610),
-                      LatLng(21.4229, 39.82612),
-                      LatLng(21.4229, 39.826),
-                      LatLng(21.4229, 39.8258),
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):     destination==tank1 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4224, 39.82652),
-                      LatLng(21.4223, 39.82677),
-                      LatLng(21.4225, 39.82678),
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):    destination==tank2 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4224, 39.82652),
-                      LatLng(21.4224, 39.8266),
-                      LatLng(21.4225, 39.8266),
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):    destination==tank3 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4221, 39.82653),
-
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):    destination==tank4 ?Polyline(
-                    points: [  LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4222, 39.82630),
-                      LatLng(21.4221, 39.82615),
-                      LatLng(21.42205, 39.826150),
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):    destination==tank5 ?Polyline(
-                    points: [
-                      LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4222, 39.82630),
-                      LatLng(21.42216, 39.826180),
-                      LatLng(21.42219, 39.825990),
-                      LatLng(21.4221, 39.82582), // Adjusted coordinates to point towards tank 5
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):    destination==tank6 ?Polyline(
-                    points: [
-                      LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4222, 39.82630),
-                      LatLng(21.42216, 39.826180),
-                      LatLng(21.42219, 39.825990),
-                      LatLng(21.4223, 39.82582),
-                      LatLng(21.4225, 39.82575),
-                      LatLng(21.4225, 39.82563),//7
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):    destination==tank7 ?Polyline(
-                    points: [
-                      LatLng(21.4222, 39.82664),
-                      LatLng(21.4223, 39.82645),
-                      LatLng(21.4222, 39.82630),
-                      LatLng(21.42216, 39.826180),
-                      LatLng(21.42219, 39.825990),
-                      LatLng(21.4223, 39.82582),
-                      LatLng(21.4225, 39.82575),
-                      LatLng(21.4226, 39.82575),
-                      LatLng(21.4227, 39.82575),
-                      LatLng(21.4227, 39.82572), // Adjusted coordinate to make the last line half as tall
-                    ],
-                    color: Colors.blue, // Color of the route polyline
-                    strokeWidth: 3,
-                  ):Polyline(
-                    points: [], // Empty points if condition is false
-                  ),
-                ],
-              ),
-
-
             ],
-
-
           ),
-
         ],
       ),
+      bottomNavigationBar: Padding(
+        padding:
+        EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
+        child: ClipRRect(
+          borderRadius: BorderRadius.vertical(
+              top: Radius.circular(40), bottom: Radius.circular(40)),
+          child: BottomAppBar(
+            color: Color(0xff004AAB),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Material(
+                  color: Color(0xff004AAB),
+                  elevation: 0, // Set elevation to 0 to prevent double shadows
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(80),
+                    bottomRight: Radius.circular(80),
+                    bottomLeft: Radius.circular(80),
+                    topLeft: Radius.circular(80),
+                  ),
+                  child: Container(
+                    width: 60, // Adjust the width as needed
+                    height: 60, // Adjust the height as needed
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(80),
+                        bottomRight: Radius.circular(80),
+                        bottomLeft: Radius.circular(80),
+                        topLeft: Radius.circular(80),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(
+                              0xff0054bb), // Adjust the shadow color and opacity
+                          spreadRadius:
+                          50, // Adjust the spread radius to make the shadow wider
+                          blurRadius:
+                          2, // Adjust the blur radius for smoother edges
+                        ),
+                      ],
+                    ),
+                    child:  IconButton(
+                      icon: Icon(Icons.location_on, color: Colors.white, size: 40),
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => MapPageEmp()));
+                      },
+                    ),
+                  ),
+                ),
+
+
+                IconButton(
+                  icon: Icon(Icons.opacity, color: Colors.white, size: 40),
+                  onPressed: () {
+
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => TankListEmp()));
+                  },
+                ),
+
+                IconButton(
+                  icon: Icon(Icons.settings, color: Colors.white, size: 40),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SettingsPage()));
+                  },
+                ),
+
+
+              ],
+            ),
+          ),
+        ),
+      ),
     );
+
   }
+
 }

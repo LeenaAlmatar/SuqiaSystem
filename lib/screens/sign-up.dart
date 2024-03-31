@@ -1,25 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/Log-in.dart';
-import 'package:suqia/screens/Employee.dart';
+import 'package:first_app/screens/Log-in.dart';
+import 'package:first_app/screens/Employee.dart';
 import '../generated/l10n.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'Package:firebase_auth/firebase_auth.dart';
 class SignUp extends StatefulWidget {
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
-  final Employee _employee = Employee();
+  FirebaseAuth _auth=FirebaseAuth.instance;
+  final firstNameController = TextEditingController(); // Define variable to store first name input
+  final lastNameController = TextEditingController(); // Define variable to store last name input
+  final emailController = TextEditingController(); // Define variable to store email input
+  final passwordController = TextEditingController(); // Define variable to store password input
+  final Employee _employee = Employee(firstName: '', lastName: '', email: '', password: '');
   String firstName = ''; // Define variable to store first name input
   String lastName = ''; // Define variable to store last name input
   String email = ''; // Define variable to store email input
-  String password = ''; // Define variable to store password input
-  String confirmPassword =
-      ''; // Define variable to store confirm password input
-  bool _obscurePassword = true; // Variable to toggle password visibility
-  bool _obscureConfirmPassword =
-      true; // Variable to toggle confirm password visibility
+  String password = '';
+  String confirmPassword = ''; // Define variable to store confirm password input
 
+  bool _obscurePassword = true; // Variable to toggle password visibility
+  bool _obscureConfirmPassword = true; // Variable to toggle confirm password visibility
+
+
+Future<User?>signUpWithEmailAndPassword(String email,String Password)async{
+
+
+  try{
+    UserCredential credential=await _auth.createUserWithEmailAndPassword(email: email, password: password);
+    return credential.user;
+  }catch(e){
+    print("some error ouccered");
+  }
+  return null;
+}
+@override
+  void dispose() {
+  firstNameController.dispose();
+  lastNameController.dispose();
+  emailController.dispose();
+  passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'Assets/Suqia.jpg',
+                    'assets/Suqia.jpg',
                     width: 350,
                     height: 100,
                   ),
@@ -74,6 +100,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 8),
                     TextFormField(
+                      controller: firstNameController,
                       decoration: InputDecoration(
                         hintText: S
                             .of(context)
@@ -109,6 +136,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 8),
                     TextFormField(
+                      controller: lastNameController,
                       decoration: InputDecoration(
                         hintText: S
                             .of(context)
@@ -144,9 +172,10 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 8),
                     TextFormField(
+                      controller: emailController,
                       decoration: InputDecoration(
                         hintText:
-                            S.of(context).emailMessage, //'Enter your email',
+                        S.of(context).emailMessage, //'Enter your email',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
@@ -184,9 +213,9 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 8),
                     TextFormField(
+                      controller: passwordController,
                       decoration: InputDecoration(
-                        hintText:
-                            S.of(context).passMessage, //'Enter your password',
+                        hintText: S.of(context).passMessage, //'Enter your password',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
@@ -254,7 +283,7 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () {
                             setState(() {
                               _obscureConfirmPassword =
-                                  !_obscureConfirmPassword;
+                              !_obscureConfirmPassword;
                             });
                           },
                         ),
@@ -298,12 +327,8 @@ class _SignUpState extends State<SignUp> {
                                     RegExp(r'[!@#%^&*(),.?":{}|<>]')) &&
                                 _employee.signUp(
                                     firstName, lastName, email, password)) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
-                                ),
-                              );
+                              _signUp();
+
                             } else {
                               String errorMessage = '';
                               if (!email.endsWith('@suqia.com')) {
@@ -364,7 +389,7 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               );
                             }
-                          },
+                            },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -422,5 +447,62 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+}
+void _signUp() async {
+    String Fname = firstNameController.text;
+    String Lname = lastNameController.text;
+    String DEmail = emailController.text;
+    String DPassword = passwordController.text;
+
+    // Query Firestore to check if the email exists in the Employees collection
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('Employees')
+        .where('Email', isEqualTo: DEmail)
+        .get();
+
+    // If the query returns any documents, it means the email exists
+    if (querySnapshot.docs.isNotEmpty) {
+      // Proceed with user signup
+      User? user = await signUpWithEmailAndPassword(DEmail, DPassword);
+      if (user != null) {
+        print("User successfully created");
+        CollectionReference collRef =FirebaseFirestore.instance.collection('Employees');
+        collRef.add({'First Name':firstNameController.text,'Last Name':lastNameController.text
+          ,'Email':emailController.text,'Password':passwordController.text});
+
+        User? user = FirebaseAuth.instance.currentUser;
+        if (user != null) {
+          // Get the user UID
+          String userUID = user.uid;
+
+          // Reference to the Firestore collection
+          CollectionReference users = FirebaseFirestore.instance.collection('Employees');
+
+          // Create a new document with the user UID as the document ID
+          await users.doc(userUID).set({
+            'First Name':firstNameController.text ,
+            'Last Name':lastNameController.text ,
+            'Email': emailController.text,
+            'Password':passwordController.text
+          });
+        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginPage(),
+          ),
+        );
+      }
+    } else {
+      // If the query doesn't return any documents, show an error message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text( S.of(context).emailExist),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 3),
+        ),
+      );
+    }
   }
+
 }
