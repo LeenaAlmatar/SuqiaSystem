@@ -109,5 +109,22 @@
 
   "enquirers": "For enquirers and support:",
   "about": "At Suqia we are passionate about improving your experience in the holy mosques.",
-  "aboutSuqia": "We will help you arrive to Zamzm water tanks by using your direction settings to guide you for the nearest Zamzm water tank based on your specifications with the highest quality and the easiest way."
+  "aboutSuqia": "We will help you arrive to Zamzm water tanks by using your direction settings to guide you for the nearest Zamzm water tank based on your specifications with the highest quality and the easiest way.",
+  "emailExist":"Email doesn't exist",
+  "wrongEmailorPassword": "Wrong Email or Password",
+  "edit": "Edit",
+  "enterNew": "Enter New",
+  "cancel": "Cancel",
+  "error": "Error",
+  "updateInformation": "Update Information",
+  "updatedsuccessfully": "updated successfully",
+  "editProfile": "Edit Profile",
+  "ressetPasswod": "Resset Passwrod ?",
+  "checkyouremail": "Check your email",
+  "restLink":"The Rest Password Link Is Successfully Sent To Your Email",
+  "tankStatusChanged": "Tank Status Changed",
+  "tank": "Tank",
+  "isnowemptyPleaserefillit": "is now empty Please refill it."
+
+
 }

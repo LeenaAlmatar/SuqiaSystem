@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/MapPage.dart';
-import 'package:suqia/screens/TankList.dart';
-import 'package:suqia/screens/Language.dart';
-import 'package:suqia/screens/Privacy.dart';
-import 'package:suqia/screens/ContactUs.dart';
-import 'package:suqia/screens/AboutSuqia.dart';
+import 'package:first_app/screens/MapPageVist.dart';
+import 'package:first_app/screens/TankListVist.dart';
+import 'package:first_app/screens/LanguageVist.dart';
+import 'package:first_app/screens/Privacy.dart';
+import 'package:first_app/screens/ContactUs.dart';
+import 'package:first_app/screens/AboutSuqia.dart';
 import '../generated/l10n.dart';
 
 class SettingsPageVistor extends StatelessWidget {
@@ -38,13 +38,13 @@ class SettingsPageVistor extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).language,//'Language',
-                  () {
+                      () {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => LanguagePage()));
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LanguagePage()),
@@ -55,13 +55,13 @@ class SettingsPageVistor extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).privacy,//'Privacy',
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => PrivacyPage()),
                     );
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => PrivacyPage()),
@@ -72,13 +72,13 @@ class SettingsPageVistor extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).contactUs,//'Contact us',
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => ContactUsPage()),
                     );
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => ContactUsPage()),
@@ -89,13 +89,13 @@ class SettingsPageVistor extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).aboutUs,//'About us',
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => AboutSuqiaPage()),
                     );
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => AboutSuqiaPage()),
@@ -109,7 +109,7 @@ class SettingsPageVistor extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding:
-            EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
+        EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
         child: ClipRRect(
           borderRadius: BorderRadius.vertical(
               top: Radius.circular(40), bottom: Radius.circular(40)),
@@ -123,7 +123,7 @@ class SettingsPageVistor extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MapPage()),
+                      MaterialPageRoute(builder: (context) => MapPageVist()),
                     );
                   },
                 ),
@@ -132,7 +132,7 @@ class SettingsPageVistor extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => TankList()),
+                      MaterialPageRoute(builder: (context) => TankListVist()),
                     );
                   },
                 ),
@@ -160,9 +160,9 @@ class SettingsPageVistor extends StatelessWidget {
                           color: Color(
                               0xff0054bb), // Adjust the shadow color and opacity
                           spreadRadius:
-                              50, // Adjust the spread radius to make the shadow wider
+                          50, // Adjust the spread radius to make the shadow wider
                           blurRadius:
-                              2, // Adjust the blur radius for smoother edges
+                          2, // Adjust the blur radius for smoother edges
                         ),
                       ],
                     ),
@@ -186,11 +186,11 @@ class SettingsPageVistor extends StatelessWidget {
   }
 
   Widget _buildOptionCard(
-    BuildContext context,
-    String title,
-    Function() onTap,
-    Function() onArrowForwardPressed,
-  ) {
+      BuildContext context,
+      String title,
+      Function() onTap,
+      Function() onArrowForwardPressed,
+      ) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),

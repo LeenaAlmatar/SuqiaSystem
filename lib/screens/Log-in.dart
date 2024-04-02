@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/Verification.dart';
-import 'package:suqia/screens/EmailResetPassword.dart';
-import 'package:suqia/screens/Employee.dart';
-import 'package:suqia/screens/sign-up.dart';
+import 'package:first_app/screens/EmailResetPassword.dart';
+import 'package:first_app/screens/sign-up.dart';
+import 'package:first_app/screens/MapPageEmp.dart';
+import 'package:first_app/screens/Employee.dart';
 import '../generated/l10n.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -11,11 +15,31 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final Employee _employee = Employee();
-  String email = ''; // Define variable to store email input
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final emailController = TextEditingController(); // Define variable to store email input
+  final LogpasswordController = TextEditingController(); // Define variable to store password input
+  String email = '';
   String password = '';
   bool rememberMe = false;
   bool _obscurePassword = true;
+  List<DocumentSnapshot> data = [];
+
+  Future<User?> signInWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential credential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      return credential.user;
+    } catch (e) {
+      print("some error occurred");
+    }
+    return null;
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    LogpasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'Assets/Suqia.jpg',
+                    'assets/Suqia.jpg',
                     width: 350,
                     height: 100,
                   ),
@@ -61,16 +85,18 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context).email,//'Email',
+                      S.of(context).email,
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Color(0xff004AAB),
                       ),
                     ),
-                    SizedBox(height: 8),TextFormField(
+                    SizedBox(height: 8),
+                    TextFormField(
+                      controller: emailController,
                       decoration: InputDecoration(
-                        hintText: S.of(context).emailMessage,//'Enter your email',
+                        hintText: S.of(context).emailMessage,
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
@@ -82,10 +108,9 @@ class _LoginPageState extends State<LoginPage> {
                         });
                       },
                     ),
-
                     SizedBox(height: 8),
                     Text(
-                      S.of(context).password,//'Password',
+                      S.of(context).password,
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -94,17 +119,16 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height: 8),
                     TextFormField(
+                      controller: LogpasswordController,
                       decoration: InputDecoration(
-                        hintText: S.of(context).passMessage,//'Enter your password',
+                        hintText: S.of(context).passMessage,
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFF6C6C6C)),
                         ),
                         contentPadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _obscurePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                            _obscurePassword ? Icons.visibility_off : Icons.visibility,
                           ),
                           onPressed: () {
                             setState(() {
@@ -115,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       onChanged: (value) {
                         setState(() {
-                          password = value;
+                          password = value; // Update the password variable
                         });
                       },
                       obscureText: _obscurePassword,
@@ -129,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       child: Text(
-                        S.of(context).passForget,//'Forgot Password?',
+                        S.of(context).passForget,
                         style: TextStyle(
                           fontSize: 14,
                           color: Color(0xff004AAB),
@@ -144,14 +168,10 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Checkbox(
                               value: rememberMe,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  rememberMe = newValue!;
-                                });
-                              },
+                              onChanged: _onRememberMeChanged,
                             ),
                             Text(
-                              S.of(context).rememberMe,//'Remember Me',
+                              S.of(context).rememberMe,
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.black87,
@@ -169,30 +189,16 @@ class _LoginPageState extends State<LoginPage> {
                         height: 36.0,
                         child: ElevatedButton(
                           onPressed: () {
-                            if(_employee.logIn(email, password)){
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => VerificationPage()),
-                              );} else {
-                              String errorMessage = '';
-                              errorMessage = S.of(context).loginError; //'Invalid email or password';
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(errorMessage),
-                                  backgroundColor: Colors.red,
-                                  duration: Duration(seconds: 4), // Adjust as needed
-                                ),
-                              );
-
-                            }},
-
+                            _signIn();
+                          },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
-                            ), backgroundColor: Color(0xff004AAB),
+                            ),
+                            backgroundColor: Color(0xff004AAB),
                           ),
                           child: Text(
-                            S.of(context).loginPage,//'Login',
+                            S.of(context).loginPage,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -206,7 +212,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          S.of(context).noAccount,//'Don\'t have an account? ',
+                          S.of(context).noAccount,
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.black87,
@@ -214,13 +220,13 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            // Navigate to sign up page
                             Navigator.pushReplacement(
-                                context, MaterialPageRoute(builder: (context) => SignUp()));
-                            //Navigator.pop(context); // Go back to the previous screen
+                              context,
+                              MaterialPageRoute(builder: (context) => SignUp()),
+                            );
                           },
                           child: Text(
-                            S.of(context).signUpButton,//'Sign Up',
+                            S.of(context).signUpButton,
                             style: TextStyle(
                               fontSize: 14,
                               color: Color(0xff004AAB),
@@ -237,5 +243,68 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void _signIn() async {
+    String DEmail = emailController.text;
+    String DPassword = LogpasswordController.text;
+    User? user = await signInWithEmailAndPassword(DEmail, DPassword);
+
+    if (user != null) {
+      print("user successfully logged in ");
+      if (rememberMe) {
+        // Store credentials if "Remember Me" is checked
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('email', DEmail);
+        prefs.setString('password', DPassword);
+      }
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MapPageEmp(),
+        ),
+      );
+    }
+    else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text( S.of(context).wrongEmailorPassword),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 3),
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Check if credentials are stored and set rememberMe accordingly
+    SharedPreferences.getInstance().then((prefs) {
+      setState(() {
+        rememberMe = prefs.getBool('rememberMe') ?? false;
+        if (rememberMe) {
+          // Retrieve stored email and password
+          String storedEmail = prefs.getString('email') ?? '';
+          String storedPassword = prefs.getString('password') ?? '';
+          // Set text in controllers
+          emailController.text = storedEmail;
+          LogpasswordController.text = storedPassword;
+        }
+      });
+    });
+  }
+
+  // When the "Remember Me" checkbox is changed
+  void _onRememberMeChanged(bool? newValue) {
+    if (newValue != null) {
+      setState(() {
+        rememberMe = newValue;
+        SharedPreferences.getInstance().then((prefs) {
+          prefs.setBool('rememberMe', rememberMe);
+        });
+      });
+    }
   }
 }

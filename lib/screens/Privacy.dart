@@ -117,7 +117,7 @@ class PrivacyPage extends StatelessWidget {
                       S.of(context).dataRetention,//'We retain your location information for as long as necessary to fulfill the purposes outlined in this policy unless a longer retention period is required or permitted by law.',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Color(0xFF0000CC),                      ),
+                        color: Color(0xff004AAB),                      ),
                     ),
                     SizedBox(height: 10),
                     Text(

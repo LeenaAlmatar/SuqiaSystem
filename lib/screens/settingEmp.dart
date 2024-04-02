@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/MapPage.dart';
-import 'package:suqia/screens/TankList.dart';
-import 'package:suqia/screens/profile-Edit.dart';
-import 'package:suqia/screens/Language.dart';
-import 'package:suqia/screens/Privacy.dart';
-import 'package:suqia/screens/ContactUs.dart';
-import 'package:suqia/screens/AboutSuqia.dart';
+import 'package:first_app/screens/MapPageEmp.dart';
+import 'package:first_app/screens/TankListEmp.dart';
+import 'package:first_app/screens/profile-Edit.dart';
+import 'package:first_app/screens/LanguageEmp.dart';
+import 'package:first_app/screens/Privacy.dart';
+import 'package:first_app/screens/ContactUs.dart';
+import 'package:first_app/screens/AboutSuqia.dart';
+import 'package:first_app/screens/IdentityPage.dart';
+import 'package:first_app/screens/Employee.dart';
 import '../generated/l10n.dart';
 
 class SettingsPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,30 +42,30 @@ class SettingsPage extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).profile,//'Profile',
-                  () {Navigator.push(
+                      () {Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ProfileEditPage()),
-                  );},
-                  () {
+                        builder: (context) => ProfileEditPage(),
+                  ));},
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ProfileEditPage()),
-                    );
+                          builder: (context) => ProfileEditPage(),
+                    ));
                   },
                 ),
                 SizedBox(height: 10),
                 _buildOptionCard(
                   context,
                   S.of(context).language,//'Language',
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LanguagePage()),
                     );
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LanguagePage()),
@@ -73,13 +76,13 @@ class SettingsPage extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).privacy,//'Privacy',
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => PrivacyPage()),
                     );
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => PrivacyPage()),
@@ -90,13 +93,13 @@ class SettingsPage extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).contactUs,//'Contact us',
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => ContactUsPage()),
                     );
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => ContactUsPage()),
@@ -107,13 +110,13 @@ class SettingsPage extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).aboutUs,//'About us',
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => AboutSuqiaPage()),
                     );
                   },
-                  () {
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => AboutSuqiaPage()),
@@ -124,8 +127,8 @@ class SettingsPage extends StatelessWidget {
                 _buildOptionCard(
                   context,
                   S.of(context).logOut,//'Logout',
-                  () {},
-                  () {
+                      () {},
+                      () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -136,7 +139,11 @@ class SettingsPage extends StatelessWidget {
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
-                              },
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(builder: (context) => IdentityPage()),
+                                      (Route<dynamic> route) => false,
+                                );
+                                },
                               child: Text(S.of(context).ok),
                             ),
                           ],
@@ -152,7 +159,7 @@ class SettingsPage extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding:
-            EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
+        EdgeInsets.only(bottom: 8), // Adjust the padding value as needed
         child: ClipRRect(
           borderRadius: BorderRadius.vertical(
               top: Radius.circular(40), bottom: Radius.circular(40)),
@@ -166,7 +173,7 @@ class SettingsPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MapPage()),
+                      MaterialPageRoute(builder: (context) => MapPageEmp()),
                     );
                   },
                 ),
@@ -174,7 +181,7 @@ class SettingsPage extends StatelessWidget {
                   icon: Icon(Icons.opacity, color: Colors.white, size: 40),
                   onPressed: () {
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => TankList()));
+                        MaterialPageRoute(builder: (context) => TankListEmp()));
                   },
                 ),
                 Material(
@@ -201,18 +208,18 @@ class SettingsPage extends StatelessWidget {
                           color: Color(
                               0xff0054bb), // Adjust the shadow color and opacity
                           spreadRadius:
-                              50, // Adjust the spread radius to make the shadow wider
+                          50, // Adjust the spread radius to make the shadow wider
                           blurRadius:
-                              2, // Adjust the blur radius for smoother edges
+                          2, // Adjust the blur radius for smoother edges
                         ),
                       ],
                     ),
                     child: IconButton(
                       icon: Icon(Icons.settings, color: Colors.white, size: 40),
                       onPressed: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SettingsPage()),
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => SettingsPage()),
                         );
                       },
                     ),
@@ -227,11 +234,11 @@ class SettingsPage extends StatelessWidget {
   }
 
   Widget _buildOptionCard(
-    BuildContext context,
-    String title,
-    Function() onTap,
-    Function() onArrowForwardPressed,
-  ) {
+      BuildContext context,
+      String title,
+      Function() onTap,
+      Function() onArrowForwardPressed,
+      ) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),

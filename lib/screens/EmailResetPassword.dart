@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/PasswordRestVerification.dart';
+import 'package:first_app/screens/Log-in.dart';
 import '../generated/l10n.dart';
 
 class ResetPasswordPage extends StatelessWidget {
+  final emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +15,7 @@ class ResetPasswordPage extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: Text(S.of(context).verifPageTitle),
+        title: Text(S.of(context).resetPassTittle),
         centerTitle: true,
         backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
@@ -34,7 +36,7 @@ class ResetPasswordPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'Assets/Suqia.jpg', // Adjust the image path
+                    'assets/Suqia.jpg', // Adjust the image path
                     width: 350,
                     height: 100,
                   ),
@@ -81,6 +83,7 @@ class ResetPasswordPage extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         TextFormField(
+                          controller: emailController,
                           decoration: InputDecoration(
                             hintText: S.of(context).emailMessage,//'Enter your email',
                             border: OutlineInputBorder(
@@ -96,11 +99,28 @@ class ResetPasswordPage extends StatelessWidget {
                       width: 1000,
                       height: 48.0,
                       child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => PasswordVerificationPage()),
+                        onPressed: () async{
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text(S.of(context).checkyouremail),
+                                content: Text(S.of(context).restLink),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text(S.of(context).ok),
+                                  ),
+                                ],
+                              );
+                            },
                           );
+
+                          await FirebaseAuth.instance.sendPasswordResetEmail(email:emailController.text);
+
+                          Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(

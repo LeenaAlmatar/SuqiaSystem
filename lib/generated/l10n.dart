@@ -1039,6 +1039,146 @@ class S {
       args: [],
     );
   }
+
+  /// `Email doesn't exist`
+  String get emailExist {
+    return Intl.message(
+      'Email doesn\'t exist',
+      name: 'emailExist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong Email or Password`
+  String get wrongEmailorPassword {
+    return Intl.message(
+      'Wrong Email or Password',
+      name: 'wrongEmailorPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New`
+  String get enterNew {
+    return Intl.message(
+      'Enter New',
+      name: 'enterNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Information`
+  String get updateInformation {
+    return Intl.message(
+      'Update Information',
+      name: 'updateInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `updated successfully`
+  String get updatedsuccessfully {
+    return Intl.message(
+      'updated successfully',
+      name: 'updatedsuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get editProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resset Passwrod ?`
+  String get ressetPasswod {
+    return Intl.message(
+      'Resset Passwrod ?',
+      name: 'ressetPasswod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your email`
+  String get checkyouremail {
+    return Intl.message(
+      'Check your email',
+      name: 'checkyouremail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The Rest Password Link Is Successfully Sent To Your Email`
+  String get restLink {
+    return Intl.message(
+      'The Rest Password Link Is Successfully Sent To Your Email',
+      name: 'restLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tank Status Changed`
+  String get tankStatusChanged {
+    return Intl.message(
+      'Tank Status Changed',
+      name: 'tankStatusChanged',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `is now empty Please refill it.`
+  String get isnowemptyPleaserefillit {
+    return Intl.message(
+      'is now empty Please refill it.',
+      name: 'isnowemptyPleaserefillit',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
