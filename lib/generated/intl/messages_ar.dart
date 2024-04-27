@@ -27,8 +27,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutSuqia": MessageLookupByLibrary.simpleMessage(
             "سنساعدك في الوصول إلى حافظات مياه زمزم باستخدام إعدادات الاتجاه الخاصة بك لإرشادك إلى أقرب خزان مياه زمزم بناءً على مواصفاتك بأعلى جودة وأسهل طريقة."),
         "aboutUs": MessageLookupByLibrary.simpleMessage("عن سقيا"),
+        "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
         "checkEmail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من بريدك الإلكتروني وإدخال الرمز المرسل للتحقق من هويتك لتتمكن من تغيير كلمة المرور الخاصة بك."),
+        "checkyouremail":
+            MessageLookupByLibrary.simpleMessage("تحقق من ايميلك الشخصي"),
         "codeTime": MessageLookupByLibrary.simpleMessage(
             "تنتهي صلاحية الرمز بعد دقيقتين"),
         "cold": MessageLookupByLibrary.simpleMessage("باردة"),
@@ -38,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataRetention": MessageLookupByLibrary.simpleMessage(
             "نحن نحتفظ بمعلومات موقعك طالما كان ذلك ضروريًا لتحقيق الأغراض الموضحة في هذه السياسة ما لم تكن فترة الاحتفاظ الأطول مطلوبة أو مسموح بها بموجب القانون."),
         "distance": MessageLookupByLibrary.simpleMessage("مسافة"),
+        "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الحساب"),
         "email": MessageLookupByLibrary.simpleMessage("بريد الإلكتروني"),
         "emailCode": MessageLookupByLibrary.simpleMessage(
             "رجاء تحقق البريد الالكتروني وادخال الرمز المرسل للتحقق من بريد الالكتروني"),
@@ -45,11 +50,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "رجاء قم بتعبئة بريدك الإلكتروني"),
         "emailErrorMes": MessageLookupByLibrary.simpleMessage(
             "بريد الألكتروني يجب أن ينتهي ب @suqia.com"),
+        "emailExist": MessageLookupByLibrary.simpleMessage("الايميل غير موجود"),
         "emailMessage":
             MessageLookupByLibrary.simpleMessage("ادخل بريدك الإلكتروني"),
         "employee": MessageLookupByLibrary.simpleMessage("موظف سقيا"),
         "empty": MessageLookupByLibrary.simpleMessage("فارغة"),
         "enquirers": MessageLookupByLibrary.simpleMessage("للاستفسار والدعم:"),
+        "enterNew": MessageLookupByLibrary.simpleMessage("ادخل"),
+        "error": MessageLookupByLibrary.simpleMessage("خطأ"),
         "farthest": MessageLookupByLibrary.simpleMessage("الأبعد"),
         "firstName": MessageLookupByLibrary.simpleMessage("الأسم الأول"),
         "firstNameEmpty":
@@ -73,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "intro": MessageLookupByLibrary.simpleMessage("المقدمة:"),
         "introPri": MessageLookupByLibrary.simpleMessage(
             "تنطبق سياسة الخصوصية هذه على تطبيق الهاتف المحمول الخاص بنا، وهو يشرح كيف نقوم بجمع واستخدام وحماية معلوماتك الشخصية عند استخدامك سقيا."),
+        "isnowemptyPleaserefillit": MessageLookupByLibrary.simpleMessage(
+            "فارغة حاليًا الرجاء اعادة تعبئتها"),
         "lanAr": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "lanChange": MessageLookupByLibrary.simpleMessage("غير اللغة"),
         "lanEn": MessageLookupByLibrary.simpleMessage("اللغة الإنجيلزية"),
@@ -138,6 +148,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم إعادة تعين الرمز السري بنجاح"),
         "resetPassTittle":
             MessageLookupByLibrary.simpleMessage("إعادة تعين الرمز السري"),
+        "ressetPasswod":
+            MessageLookupByLibrary.simpleMessage("اعادة تعيين كلمة المرور ؟"),
+        "restLink": MessageLookupByLibrary.simpleMessage(
+            "رابط اعادة تعيين كلمة المرور تم ارساله بنجاح الى ايميلك "),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "send": MessageLookupByLibrary.simpleMessage("إرسال"),
         "sendEmail": MessageLookupByLibrary.simpleMessage(
@@ -150,9 +164,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "tListTitle":
             MessageLookupByLibrary.simpleMessage("قائمة حافظات مياة زمزم"),
         "tStatus": MessageLookupByLibrary.simpleMessage("حالة حافظة الماء"),
-        "tank": MessageLookupByLibrary.simpleMessage("حافظة ماء"),
+        "tank": MessageLookupByLibrary.simpleMessage("حافظة"),
         "tankNum": MessageLookupByLibrary.simpleMessage("رقم الحافظة"),
+        "tankStatusChanged":
+            MessageLookupByLibrary.simpleMessage("تغيير في حالة الحافظة"),
         "temperature": MessageLookupByLibrary.simpleMessage("درجة الحرارة"),
+        "updateInformation":
+            MessageLookupByLibrary.simpleMessage("تحديث البيانات"),
+        "updatedsuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم تحديثه بنجاح"),
         "verifIdn": MessageLookupByLibrary.simpleMessage("تحقق من هويتك"),
         "verifPageTitle": MessageLookupByLibrary.simpleMessage("تحقق"),
         "verifyButton": MessageLookupByLibrary.simpleMessage("تحقق"),
@@ -162,6 +182,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "warm": MessageLookupByLibrary.simpleMessage("دافئ"),
         "welcome": MessageLookupByLibrary.simpleMessage("هلا وسهلاً فيك سقيا"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
-            "سقيا يساعدك توصل لمياة زمزم بكل سهولة!")
+            "سقيا يساعدك توصل لمياة زمزم بكل سهولة!"),
+        "wrongEmailorPassword": MessageLookupByLibrary.simpleMessage(
+            "يوجد خطا في الايميل او كلمة السر")
       };
 }
