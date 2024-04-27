@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/TankInfo.dart';
-import 'package:suqia/screens/settingEmp.dart';
-import 'package:suqia/screens/MapPage.dart';
+import 'package:first_app/screens/TankInfo.dart';
+import 'package:first_app/screens/settingEmp.dart';
+import 'package:first_app/screens/MapPage.dart';
 import '../generated/l10n.dart';
 
 class TankList extends StatefulWidget {
@@ -160,7 +160,7 @@ class _TankListState extends State<TankList> {
                           width: 50,
                           height: 50,
                           child: Image.asset(
-                            "Assets/tank.png",
+                            "assets/tank.png",
                           ),
                         ),
                         SizedBox(width: 50),

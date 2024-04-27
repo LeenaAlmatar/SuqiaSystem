@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/Suqia.jpg',
+                    'assets/logo.png',
                     width: 350,
                     height: 100,
                   ),

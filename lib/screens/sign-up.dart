@@ -30,7 +30,7 @@ class _SignUpState extends State<SignUp> {
         ),
         title: Text(S.of(context).signUpTitle),
         centerTitle: true,
-        backgroundColor: Color(0xff004AAB),
+        backgroundColor: Color(0xFFF1F2F3),
         titleTextStyle: TextStyle(
           color: Color(0xff004AAB),
           fontSize: 24,
@@ -49,7 +49,7 @@ class _SignUpState extends State<SignUp> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/Suqia.jpg',
+                    'assets/logo.png',
                     width: 350,
                     height: 100,
                   ),

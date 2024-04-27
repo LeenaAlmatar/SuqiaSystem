@@ -33,7 +33,7 @@ class VerificationPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/Suqia.jpg', // Adjust the image path
+                    'assets/logo.png', // Adjust the image path
                     width: 350,
                     height: 100,
                   ),

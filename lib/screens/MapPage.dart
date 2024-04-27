@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:suqia/screens/TankList.dart';
-import 'package:suqia/screens/settingEmp.dart';
+import 'package:first_app/screens/TankList.dart';
+import 'package:first_app/screens/settingEmp.dart';
 import '../generated/l10n.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:suqia/screens/TankInfo.dart';
+import 'package:first_app/screens/TankInfo.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 

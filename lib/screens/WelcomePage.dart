@@ -42,7 +42,7 @@ class _WelcomePageState extends State<WelcomePage> {
               Container(
                 height: 300,
                 width: 300,
-                child: Image.asset("assets/Suqia.jpg"),
+                child: Image.asset("assets/logo.png"),
               ),
               SizedBox(height: 60),
               Text(

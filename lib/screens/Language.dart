@@ -96,45 +96,6 @@ class _LanguagePageState extends State<LanguagePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 60),
-                SizedBox(
-                  width: double.infinity,
-                  height: 48.0,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Show pop-up notification for successful reset
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: Text(S.of(context).langMessg),
-                            content: Text(S.of(context).lanSelect + '$selectedLanguage'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text(S.of(context).ok),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ), backgroundColor: Color(0xff004AAB),
-                    ),
-                    child: Text(
-                      S.of(context).lanChange,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

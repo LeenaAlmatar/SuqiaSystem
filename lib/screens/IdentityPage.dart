@@ -91,7 +91,7 @@ class _IdentityPageState extends State<IdentityPage> {
             Container(
               height: 200,
               width: 200,
-              child: Image.asset("assets/Suqia.jpg"),
+              child: Image.asset("assets/logo.png"),
             ),
             SizedBox(height: 90),
             ElevatedButton(
