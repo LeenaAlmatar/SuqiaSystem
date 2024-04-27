@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "545781490859",
+    "firebase_url": "https://suqia-b3645-default-rtdb.firebaseio.com",
+    "project_id": "suqia-b3645",
+    "storage_bucket": "suqia-b3645.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545781490859:android:2d5bf0d6294a27d38843ee",
+        "android_client_info": {
+          "package_name": "com.example.first_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXtui8o_nnoFmKH8SzxMayyZAnEahoAPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545781490859:android:a332cd2188038a7b8843ee",
+        "android_client_info": {
+          "package_name": "com.example.suqia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXtui8o_nnoFmKH8SzxMayyZAnEahoAPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
