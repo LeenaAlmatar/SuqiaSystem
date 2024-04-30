@@ -27,8 +27,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutSuqia": MessageLookupByLibrary.simpleMessage(
             "We will help you arrive to Zamzm water tanks by using your direction settings to guide you for the nearest Zamzm water tank based on your specifications with the highest quality and the easiest way."),
         "aboutUs": MessageLookupByLibrary.simpleMessage("About us"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "checkEmail": MessageLookupByLibrary.simpleMessage(
             "Please check your email and enter the code below to verify your identity to be able to change your password."),
+        "checkyouremail":
+            MessageLookupByLibrary.simpleMessage("Check your email"),
         "codeTime": MessageLookupByLibrary.simpleMessage(
             "The code will expire in 2 minutes."),
         "cold": MessageLookupByLibrary.simpleMessage("Cold"),
@@ -37,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataRetention": MessageLookupByLibrary.simpleMessage(
             "We retain your location information for as long as necessary to fulfill the purposes outlined in this policy unless a longer retention period is required or permitted by law."),
         "distance": MessageLookupByLibrary.simpleMessage("Distance"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailCode": MessageLookupByLibrary.simpleMessage(
             "Please check your email and enter the code below to verify your email."),
@@ -44,12 +49,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter an email"),
         "emailErrorMes": MessageLookupByLibrary.simpleMessage(
             "Email must end with @suqia.com"),
+        "emailExist":
+            MessageLookupByLibrary.simpleMessage("Email doesn\'t exist"),
         "emailMessage":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
-        "employee": MessageLookupByLibrary.simpleMessage("Employee"),
+        "employee": MessageLookupByLibrary.simpleMessage("Suqia Employee"),
         "empty": MessageLookupByLibrary.simpleMessage("Empty"),
         "enquirers":
             MessageLookupByLibrary.simpleMessage("For enquirers and support:"),
+        "enterNew": MessageLookupByLibrary.simpleMessage("Enter New"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "farthest": MessageLookupByLibrary.simpleMessage("farthest"),
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "firstNameEmpty": MessageLookupByLibrary.simpleMessage(
@@ -76,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "intro": MessageLookupByLibrary.simpleMessage("Introduction:"),
         "introPri": MessageLookupByLibrary.simpleMessage(
             "This privacy policy applies to our mobile application. It explains how we collect, use, and protect your personal information when you use Suqia."),
+        "isnowemptyPleaserefillit": MessageLookupByLibrary.simpleMessage(
+            "is now empty Please refill it."),
         "lanAr": MessageLookupByLibrary.simpleMessage("Arabic"),
         "lanChange": MessageLookupByLibrary.simpleMessage("Change Language"),
         "lanEn": MessageLookupByLibrary.simpleMessage("English"),
@@ -142,6 +153,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reset Password Successfully"),
         "resetPassTittle":
             MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "ressetPasswod":
+            MessageLookupByLibrary.simpleMessage("Resset Passwrod ?"),
+        "restLink": MessageLookupByLibrary.simpleMessage(
+            "The Rest Password Link Is Successfully Sent To Your Email"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "sendEmail": MessageLookupByLibrary.simpleMessage(
@@ -154,7 +169,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "tStatus": MessageLookupByLibrary.simpleMessage("Tank status"),
         "tank": MessageLookupByLibrary.simpleMessage("Tank"),
         "tankNum": MessageLookupByLibrary.simpleMessage("Tank Number"),
+        "tankStatusChanged":
+            MessageLookupByLibrary.simpleMessage("Tank Status Changed"),
         "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
+        "updateInformation":
+            MessageLookupByLibrary.simpleMessage("Update Information"),
+        "updatedsuccessfully":
+            MessageLookupByLibrary.simpleMessage("updated successfully"),
         "verifIdn":
             MessageLookupByLibrary.simpleMessage("VERIFY YOUR IDENTITY"),
         "verifPageTitle": MessageLookupByLibrary.simpleMessage("Verification"),
@@ -165,6 +186,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "warm": MessageLookupByLibrary.simpleMessage("Warm"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome To Suqia"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
-            "Where you can reach water Zamzam easily!")
+            "Where you can reach water Zamzam easily!"),
+        "wrongEmailorPassword":
+            MessageLookupByLibrary.simpleMessage("Wrong Email or Password")
       };
 }
